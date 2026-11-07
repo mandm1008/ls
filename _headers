@@ -1,0 +1,4 @@
+/index.html
+  Cache-Control: no-cache, max-age=0, must-revalidate
+/version-control.js
+  Cache-Control: no-cache, max-age=0, must-revalidate

@@ -4,6 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="theme-color" content="#101b1a" />
+<meta name="game-id" content="song-lich-su-1954" />
+<meta name="game-version" content="1.3.0" />
 <title>SÓNG LỊCH SỬ 1954 · Trò chơi phát thanh tương tác</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&display=swap');
@@ -45,10 +47,29 @@ header{border-bottom:1px solid #68836d40;background:#0d1d1bcc;backdrop-filter:bl
 @media(max-width:370px){.narrator-main{grid-template-columns:96px minmax(0,1fr)}.narrator-content p{font-size:11px}.narrator-visual,.narrator-visual img{min-height:115px}}
 @media(prefers-reduced-motion:reduce){.narrator-bars i,.narrator-kicker:before{animation:none}}
 .modal{position:fixed;inset:0;z-index:40;background:#070e0cdd;backdrop-filter:blur(9px);display:none;align-items:center;justify-content:center;padding:25px;overflow:auto}.modal.show{display:flex}.modal-card{background:linear-gradient(155deg,#193529,#12251e);border:1px solid #9b855c;border-radius:17px;max-width:780px;width:100%;max-height:92vh;overflow:auto;padding:35px;box-shadow:0 35px 100px #000b;position:relative}.modal-card h2{font:600 40px/1.16 Oswald,sans-serif;margin:9px 0 15px}.modal-close{position:absolute;right:15px;top:15px;background:transparent;color:white;border:1px solid #779077;border-radius:8px;width:36px;height:36px}.modal-card p{font-size:13px;color:#c2d0bc}.modal-card input[type=text]{width:100%;padding:14px 16px;border:1px solid #8a9269;border-radius:8px;background:#0e211b;color:#fff;margin:7px 0 12px}.modes{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}.mode{background:#183027;padding:14px;text-align:left;border:1px solid #5f735a;border-radius:8px;color:white}.mode.selected{border-color:#e8c37d;background:#4a442c}.mode strong{display:block}.mode small{color:#b7c9b4;font-size:11px}.intro-video{width:100%;max-height:55vh;border-radius:8px;background:black}.final-hero{background:linear-gradient(135deg,#3e3c22,#143828);border:1px solid #a29462;border-radius:12px;padding:24px;margin-bottom:17px}.final-hero h3{font:600 43px Oswald;margin:5px 0;color:#f9e6ac}.final-hero p{margin:0}.final-score{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0}.final-stat{flex:1;min-width:115px;border:1px solid #57775b;border-radius:8px;padding:16px;text-align:center}.final-stat b{display:block;color:var(--gold);font:700 30px Oswald}.final-stat small{font-size:10px;color:#b5c8b7}.transcript{white-space:pre-wrap;max-height:280px;overflow:auto;background:#0d1e19;border:1px solid #536e51;border-radius:9px;padding:19px;color:#e6e9cf;font-size:12px;line-height:1.9}.audio-row{display:flex;flex-wrap:wrap;gap:9px;margin:15px 0}.source-modal ul{font-size:12px;line-height:2;color:#bcd0bb;padding-left:20px}.source-modal li{margin-bottom:9px}.source-modal a{word-break:break-all}.stage-cue{font-size:11px;color:#d5b779;border-top:1px solid #526950;padding-top:11px;margin-top:12px}.hidden{display:none!important}.confetti{position:fixed;width:8px;height:13px;top:-25px;z-index:70;pointer-events:none;animation:fall 3s linear forwards}@keyframes fall{to{transform:translateY(110vh) rotate(740deg);opacity:0}}@keyframes rise{from{transform:translateY(8px);opacity:0}to{transform:translateY(0);opacity:1}}@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}@media(max-width:1000px){.hero{grid-template-columns:1fr 330px;gap:15px}.hero h1{font-size:65px}.content{grid-template-columns:1fr 300px}.step-body{padding:22px}.chapter strong{font-size:10px}}@media(max-width:800px){.hero{grid-template-columns:1fr}.radio-frame{justify-self:center;max-width:520px}.hero h1{font-size:60px}.content{grid-template-columns:1fr}.side{grid-template-columns:repeat(2,minmax(0,1fr))}.chapters{overflow-x:auto;grid-template-columns:repeat(7,minmax(135px,1fr))}.chapters .chapter{min-width:135px}.wrap{padding:0 17px}.hero{padding:28px 0}.step-body{padding:22px}}@media(max-width:540px){.brand small{display:none}.brand strong{font-size:11px}.header-actions .pill{padding:8px}.header-actions .text-on-small{display:none}.hero h1{font-size:54px}.radio-frame{width:100%}.side{grid-template-columns:1fr}.choice-grid,.modes{grid-template-columns:1fr}.modal-card{padding:25px 19px}.modal-card h2{font-size:31px}.step-title{font-size:25px}.signal-choices{grid-template-columns:1fr}.bar{flex-direction:column;align-items:flex-start}.scorebar{gap:8px}.step-body{padding:18px}.step-actions .btn{flex:1}.match-grid{gap:9px}.match-item{padding:10px;font-size:11px}}@media print{header,.hero,.chapters,.side,.step-actions,.footer,.bar,.content,.narrator-dock{display:none!important}body{background:#fff;color:#000}.modal{display:block!important;position:static;background:#fff}.modal-card{border:0;box-shadow:none;max-height:none;color:#000}.modal-card p,.transcript{color:#000}.modal-close,.audio-row{display:none!important}}
+
+/* Tự động thông báo cập nhật trên static hosting */
+.update-modal{position:fixed;inset:0;background:rgba(4,12,10,.83);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;z-index:110;padding:22px}
+.update-modal.show{display:flex;animation:rise .22s ease-out}
+.update-panel{position:relative;max-width:490px;width:100%;border-radius:20px;padding:27px 29px 25px;border:1px solid #cba56b;background:linear-gradient(135deg,#234333,#12241e 62%,#1c2b21);color:#efe8d6;box-shadow:0 32px 100px #000c}
+.update-icon{height:55px;width:55px;border-radius:16px;border:1px solid #a58b5d;background:#c69e5630;display:grid;place-items:center;font-size:27px;color:#f4d58e;margin-bottom:16px}
+.update-tag{font-size:11px;font-weight:900;color:#e8bd72;letter-spacing:2px;text-transform:uppercase}
+.update-panel h2{font-family:'Oswald','Be Vietnam Pro',sans-serif;font-size:35px;line-height:1.17;margin:7px 0 13px;color:#f6e5be}
+.update-panel p{font-size:13px;line-height:1.85;color:#c3d2c4;margin:0 0 15px}
+.update-version{background:#0c221b;border:1px solid #466c51;border-radius:10px;padding:12px 14px;font-size:12px;color:#dde1cf;margin:17px 0}
+.update-version b{color:#f1ce82}
+.update-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:19px}
+.update-actions button{flex:1;min-width:130px}
+.update-note{display:block;margin-top:12px;color:#9eb5a4;font-size:11px;line-height:1.6}
+.update-toast{position:fixed;left:18px;bottom:20px;z-index:109;max-width:min(430px,calc(100vw - 36px));padding:13px 17px;background:#1e382d;border:1px solid #a88652;color:#f0dfb7;box-shadow:0 8px 35px #0009;border-radius:11px;font-weight:650;font-size:12px;display:none}
+.update-toast.show{display:block;animation:rise .2s}
+@media(max-width:540px){.update-panel{padding:23px 19px}.update-panel h2{font-size:30px}.update-actions{flex-direction:column}}
+@media print{.update-modal,.update-toast{display:none!important}}
+
 </style>
 </head>
 <body>
-<header><div class="wrap"><div class="brand"><div class="brand-icon" aria-hidden="true"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 13a9 9 0 0 1 18 0M6 13a6 6 0 0 1 12 0M9 13a3 3 0 0 1 6 0M12 14v6M7 20h10"/></svg></div><div><strong>ĐÀI PHÁT THANH LỊCH SỬ</strong><small>GIÁO DỤC LỊCH SỬ · TƯƠNG TÁC</small></div></div><div class="header-actions"><button class="pill" id="sourcesBtn">ⓘ <span class="text-on-small">Nguồn sử liệu</span></button><button class="pill" id="soundBtn" aria-label="Bật hoặc tắt âm thanh">♪ <span id="soundText" class="text-on-small">Âm thanh: Bật</span></button></div></div></header>
+<header><div class="wrap"><div class="brand"><div class="brand-icon" aria-hidden="true"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 13a9 9 0 0 1 18 0M6 13a6 6 0 0 1 12 0M9 13a3 3 0 0 1 6 0M12 14v6M7 20h10"/></svg></div><div><strong>ĐÀI PHÁT THANH LỊCH SỬ</strong><small>GIÁO DỤC LỊCH SỬ · TƯƠNG TÁC</small></div></div><div class="header-actions"><button class="pill" id="sourcesBtn">ⓘ <span class="text-on-small">Nguồn sử liệu</span></button><button class="pill" id="checkUpdateBtn" title="Kiểm tra bản cập nhật mới" aria-label="Kiểm tra bản cập nhật">↻ <span class="text-on-small">Cập nhật</span></button><button class="pill" id="soundBtn" aria-label="Bật hoặc tắt âm thanh">♪ <span id="soundText" class="text-on-small">Âm thanh: Bật</span></button></div></div></header>
 <main class="wrap"><section class="hero"><div><div class="eyebrow"><span class="live-dot"></span> CHƯƠNG TRÌNH PHÁT SÓNG ĐẶC BIỆT · NĂM 1954</div><h1>SÓNG LỊCH SỬ<br><em>1954</em></h1><p>56 ngày đêm Điện Biên Phủ qua 7 trạm phát sóng. Xác minh sự kiện, khôi phục dòng thời gian và cùng xây dựng bản tin lịch sử cuối hành trình.</p><div class="meta"><span>▣ 7 thử thách đa dạng</span><span>◉ Bản đồ & dòng thời gian</span><span>♫ Giọng đọc trên trình duyệt</span><span>✓ Có nguồn kiểm chứng</span></div></div><div class="radio-frame" aria-label="Minh họa máy thu thanh cổ điển"><div class="radio-face"><div class="radio-head"><span>HISTORIA · 1954</span><span>● ON AIR</span></div><div class="freq"><div class="needle"></div><div class="numbers"><span>1930</span><span>1945</span><span>1954</span><span>1975</span><span>1986</span></div></div><div class="radio-screen" id="waveDisplay"></div><div class="radio-foot"><div class="knob"></div><small>56 NGÀY ĐÊM<br><b>13.03 — 07.05</b></small><div class="knob"></div></div></div></div></section>
 <div class="bar"><h2>◈ LỘ TRÌNH KHÔI PHỤC BẢN TIN</h2><div class="bar-desc">Hoàn thành từng trạm để nối lại tín hiệu lịch sử</div></div>
 <nav class="chapters" id="chapters" aria-label="Các trạm phát sóng"></nav>
@@ -66,7 +87,22 @@ header{border-bottom:1px solid #68836d40;background:#0d1d1bcc;backdrop-filter:bl
 <div class="modal" id="videoModal"><div class="modal-card"><button class="modal-close" data-close="videoModal">×</button><div class="kicker">PHIM MINH HỌA CỦA NHÓM</div><h2>Khởi động không khí lịch sử</h2><p>Đoạn phim hoạt hình do nhóm cung cấp là tác phẩm minh họa sáng tạo, <strong>không phải tư liệu lịch sử gốc</strong>. Các thử thách sau sử dụng sự kiện đã đối chiếu nguồn.</p><video id="introVideo" controls preload="metadata" class="intro-video"><source src="video-minh-hoa.mp4" type="video/mp4" />Trình duyệt không hỗ trợ video.</video><p id="videoHelp" class="notice">Nếu chỉ tải bản HTML riêng lẻ, hãy đặt tệp video tên <b>video-minh-hoa.mp4</b> vào cùng thư mục.</p></div></div>
 <div class="modal" id="sourcesModal"><div class="modal-card source-modal"><button class="modal-close" data-close="sourcesModal">×</button><div class="kicker">NGUỒN SỬ LIỆU</div><h2>Tư liệu để kiểm chứng nội dung</h2><p>Các mốc và lời giải trong trò chơi được biên soạn theo những nguồn dưới đây. Bản đồ là sơ đồ giáo dục cách điệu, không dùng để đo khoảng cách địa lý hoặc xác định vị trí quân sự chính xác.</p><ul><li><b>Báo Nhân Dân:</b> Diễn biến theo ngày, mốc mở màn Him Lam. <a target="_blank" rel="noopener" href="https://dienbienphu.nhandan.vn/">dienbienphu.nhandan.vn</a></li><li><b>Bảo tàng Chiến thắng Điện Biên Phủ:</b> Các dấu mốc chiến dịch, sự kiện đồi A1, ngày chiến thắng. <a target="_blank" rel="noopener" href="https://btctdbp.svhttdl.dienbien.gov.vn/portal/pages/2020-5-8/Nhung-dau-moc-lich-su-cua-Chien-dich-Dien-Bien-Phu1olgi0pxgedr.aspx">Các dấu mốc</a></li><li><b>Báo Chính phủ:</b> Ba đợt tiến công, từ ngày 13/3 đến ngày 7/5/1954. <a target="_blank" rel="noopener" href="https://baochinhphu.vn/chien-dich-dien-bien-phu-3-dot-tan-cong-ac-liet-10224050209051285.htm">3 đợt tấn công</a></li><li><b>Hệ thống Tư liệu văn kiện Đảng:</b> Quyết định thay đổi phương châm tác chiến. <a target="_blank" rel="noopener" href="https://tulieuvankien.dangcongsan.vn/ho-so-su-kien-nhan-chung/su-kien-va-nhan-chung/chien-thang-lich-su-dien-bien-phu-751954-3368">Chiến thắng lịch sử Điện Biên Phủ</a></li><li><b>TTXVN:</b> Tư liệu về hậu cần và xe đạp thồ. <a target="_blank" rel="noopener" href="https://nvsk.vnanet.vn/anh-tu-lieu-ve-chien-thang-dien-bien-phu-1-39991.vna">Ảnh tư liệu</a></li></ul></div></div>
 <div class="modal" id="finalModal"><div class="modal-card"><button class="modal-close" data-close="finalModal">×</button><div class="kicker">TÍN HIỆU ĐÃ KẾT NỐI · 07/07 TRẠM</div><h2>Bản tin chiến thắng đã khôi phục</h2><div class="final-hero"><div class="smallcaps">BẢN TIN PHÁT THANH ĐẶC BIỆT</div><h3>ĐIỆN BIÊN PHỦ · 1954</h3><p>56 ngày đêm · Một dấu mốc trong lịch sử dân tộc Việt Nam</p></div><div class="final-score" id="finalStats"></div><div class="smallcaps">Nội dung bản tin đã khôi phục</div><div class="transcript" id="transcript" tabindex="0"></div><div class="audio-row"><button class="btn" id="playNews">▶ PHÁT GIỌNG ĐỌC</button><button class="btn secondary" id="stopNews">■ DỪNG</button><button class="btn secondary" id="downloadNews">↓ TẢI LỜI DẪN (.TXT)</button><button class="btn secondary" id="printNews">▣ IN / LƯU PDF</button></div><div class="stage-cue" id="voiceMessage">Giọng đọc sử dụng chức năng tổng hợp tiếng nói của trình duyệt. Nếu thiết bị không có giọng tiếng Việt, hãy tải lời dẫn và lồng tiếng bằng công cụ AI phù hợp.</div><div class="audio-row"><button class="btn danger" id="restartBtn">↻ CHƠI LẠI TỪ ĐẦU</button></div></div></div>
-<script>
+<div id="gameUpdateModal" class="update-modal" role="alertdialog" aria-modal="true" aria-labelledby="updateHeading" aria-describedby="updateDescription" aria-hidden="true">
+  <div class="update-panel">
+    <div class="update-icon" aria-hidden="true">↻</div>
+    <span class="update-tag">Tín hiệu cập nhật mới</span>
+    <h2 id="updateHeading">Có phiên bản trò chơi mới!</h2>
+    <p id="updateDescription">Một bản HTML mới đã được đưa lên máy chủ. Cập nhật để sử dụng các tính năng và nội dung mới nhất.</p>
+    <div class="update-version" id="updateVersionInfo"></div>
+    <div class="update-actions">
+      <button class="btn" type="button" id="updateNowBtn">↻ CẬP NHẬT NGAY</button>
+      <button class="btn secondary" type="button" id="updateLaterBtn">ĐỂ SAU</button>
+    </div>
+    <small class="update-note">Khi tải lại, game sẽ cố gắng khôi phục tiến trình hiện tại trên cùng thiết bị.</small>
+  </div>
+</div>
+<div id="gameUpdateToast" class="update-toast" role="status" aria-live="polite"></div>
+<script id="gameLogic">
 'use strict';
 const DATA=[
  {short:'Bản đồ',title:'Truy tìm chiến trường Điện Biên',date:'1953–1954',opening:'Xác định đúng nơi đã diễn ra trận quyết chiến chiến lược.',fact:'Điện Biên Phủ nằm ở vùng Tây Bắc Việt Nam, trong một lòng chảo gần biên giới Việt–Lào. Pháp xây dựng nơi đây thành tập đoàn cứ điểm và đặt kỳ vọng ngăn chặn lực lượng Việt Minh.',voice:'Trạm một. Điện Biên Phủ, vùng Tây Bắc Việt Nam, là nơi quân Pháp xây dựng tập đoàn cứ điểm có vị trí chiến lược. Trận quyết chiến tại đây trở thành bước ngoặt của cuộc kháng chiến chống thực dân Pháp.'},
@@ -191,7 +227,72 @@ function wireGlobal(){for(let i=0;i<32;i++){let e=document.createElement('i');e.
  $('#closeWelcome').onclick=()=>closeModal('welcome');$$('[data-close]').forEach(b=>b.onclick=()=>closeModal(b.dataset.close));$$('.modal').forEach(el=>el.addEventListener('click',e=>{if(e.target===el&&el.id!=='welcome')closeModal(el.id)}));$('#startBtn').onclick=startGame;$('#classMode').onclick=()=>{game.mode='class';$('#classMode').classList.add('selected');$('#timedMode').classList.remove('selected')};$('#timedMode').onclick=()=>{game.mode='timed';$('#timedMode').classList.add('selected');$('#classMode').classList.remove('selected')};$('#sourcesBtn').onclick=()=>showModal('sourcesModal');$('#soundBtn').onclick=()=>{game.sound=!game.sound;$('#soundText').textContent='Âm thanh: '+(game.sound?'Bật':'Tắt');if(!game.sound)stopSpeak();else beep()};$('#videoBtn').onclick=()=>showModal('videoModal');$('#introVideoBtn').onclick=()=>showModal('videoModal');$('#introVideo').addEventListener('error',()=>{$('#videoHelp').innerHTML='Chưa tìm thấy tệp video. Trò chơi vẫn hoạt động đầy đủ. Trong bộ ZIP kèm video, hãy giữ <b>index.html</b> và <b>video-minh-hoa.mp4</b> cùng thư mục.'});$('#playNews').onclick=()=>speak('',true);$('#stopNews').onclick=stopSpeak;$('#downloadNews').onclick=downloadScript;$('#printNews').onclick=()=>window.print();$('#restartBtn').onclick=()=>{stopSpeak();clearInterval(game.timer);game.started=false;game.done=new Set();game.score=0;game.stage=0;game.seconds=75;game.stageDone=false;game.stageHint=false;game.feedback='';try{localStorage.removeItem('songlichsu1954-save')}catch(e){}closeModal('finalModal');render();showModal('welcome')};
  window.addEventListener('keydown',e=>{if(e.key==='Escape'){['sourcesModal','videoModal','finalModal'].forEach(id=>closeModal(id))}});document.addEventListener('visibilitychange',()=>{if(document.hidden&&game.timer&&game.mode==='timed')clearInterval(game.timer);else if(!document.hidden&&game.started&&!game.stageDone&&game.mode==='timed')timerStart()});
 }
-wireGlobal();render();
+// Dấu vân tay lấy từ HTML gốc trước khi giao diện game thay đổi DOM.
+// Do đó phát hiện thay đổi file HTML kể cả khi quên tăng số version.
+window.__SLS1954_SOURCE_SIGNATURE = function(doc){
+ const head=[...doc.head.querySelectorAll('meta,style,link[rel="stylesheet"]')].map(e=>e.outerHTML).join('');
+ const body=[...doc.body.children].filter(e=>e.tagName!=='SCRIPT').map(e=>e.outerHTML).join('');
+ const logic=doc.querySelector('#gameLogic')?.textContent||'';
+ const source=head+'\\n'+body+'\\n'+logic;
+ let h1=0x811c9dc5,h2=0x9e3779b9;
+ for(let i=0;i<source.length;i++){
+  const n=source.charCodeAt(i);
+  h1=Math.imul(h1^n,16777619);
+  h2=Math.imul(h2^n,2246822519);
+ }
+ return (h1>>>0).toString(16).padStart(8,'0')+(h2>>>0).toString(16).padStart(8,'0');
+};
+window.__SLS1954_INITIAL_SIGNATURE=window.__SLS1954_SOURCE_SIGNATURE(document);
+
+const UPDATE_SAVE_KEY='songlichsu1954-update-resume-v1';
+window.__SLS1954_SAVE_BEFORE_UPDATE=function(){
+ if(!game.started)return;
+ try{
+  const selectedChecks=[...document.querySelectorAll('.verifyCheck:checked')].map(x=>+x.value);
+  const s={time:Date.now(),name:game.name,mode:game.mode,stage:game.stage,
+   done:[...game.done],score:game.score,mistakes:game.mistakes,hints:game.hints,
+   seconds:game.seconds,stageMistakes:game.stageMistakes,stageHint:game.stageHint,
+   matches:game.matches,selectedLeft:game.selectedLeft,sequence:game.sequence,
+   wave:game.wave,waveAnswers:game.waveAnswers,signals:game.signals,selectedChecks};
+  sessionStorage.setItem(UPDATE_SAVE_KEY,JSON.stringify(s));
+ }catch(e){console.warn('Không lưu được tiến trình',e)}
+};
+function restoreAfterUpdate(){
+ try{
+  const raw=sessionStorage.getItem(UPDATE_SAVE_KEY);if(!raw)return;
+  sessionStorage.removeItem(UPDATE_SAVE_KEY);
+  const s=JSON.parse(raw);
+  if(!s||Date.now()-s.time>10*60*1000)return;
+  game.started=true;
+  game.name=String(s.name||'Đội Lịch Sử').slice(0,40);
+  game.mode=s.mode==='timed'?'timed':'class';
+  game.stage=Math.max(0,Math.min(6,Number(s.stage)||0));
+  game.done=new Set((Array.isArray(s.done)?s.done:[]).filter(x=>Number.isInteger(x)&&x>=0&&x<7));
+  game.score=Math.max(0,Number(s.score)||0);
+  game.mistakes=Math.max(0,Number(s.mistakes)||0);
+  game.hints=Math.max(0,Number(s.hints)||0);
+  game.seconds=Math.max(0,Math.min(75,Number(s.seconds)||0));
+  game.stageMistakes=Math.max(0,Number(s.stageMistakes)||0);
+  game.stageHint=!!s.stageHint;
+  game.stageDone=game.done.has(game.stage);
+  game.matches=Array.isArray(s.matches)?s.matches:[];
+  game.selectedLeft=s.selectedLeft||null;
+  game.sequence=Array.isArray(s.sequence)?s.sequence:[];
+  game.wave=Number(s.wave)||0;
+  game.waveAnswers=s.waveAnswers||{};
+  game.signals=s.signals||{};
+  document.getElementById('welcome')?.classList.remove('show');
+  window.__SLS1954_RESTORED_CHECKS=Array.isArray(s.selectedChecks)?s.selectedChecks:[];
+ }catch(e){console.warn('Không thể khôi phục tiến trình',e)}
+}
+wireGlobal();restoreAfterUpdate();render();
+if(window.__SLS1954_RESTORED_CHECKS){
+ for(const n of window.__SLS1954_RESTORED_CHECKS){
+  const el=document.querySelector('.verifyCheck[value="'+n+'"]');if(el)el.checked=true;
+ }
+ delete window.__SLS1954_RESTORED_CHECKS;
+}
 </script>
+<script src="version-control.js" defer></script>
 </body>
 </html>
