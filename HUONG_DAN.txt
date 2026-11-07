@@ -1,0 +1,18 @@
+SÓNG LỊCH SỬ 1954 — BẢN CẬP NHẬT PHÁT THANH VIÊN
+
+CÁCH MỞ
+1. Giải nén toàn bộ tệp ZIP vào một thư mục.
+2. Mở index.html bằng Chrome hoặc Edge.
+3. Chơi 7 trạm và chọn “Nghe đoạn tin” tại mỗi trạm đã hoàn thành.
+4. Nhân vật GIF mới xuất hiện trong popup phát thanh và đọc lời thuyết minh.
+5. Ở cuối trò chơi, chọn “Phát giọng đọc” để nghe bản tin hoàn chỉnh.
+
+NỘI DUNG
+- index.html: trò chơi cập nhật.
+- nhan_vat_thuyet_trinh.gif: nhân vật hoạt hình do người dùng cung cấp.
+- video-minh-hoa.mp4: video minh họa mở đầu.
+
+LƯU Ý
+- Lời kể tự động sử dụng Speech Synthesis của trình duyệt. Chất lượng giọng tiếng Việt tùy thiết bị.
+- Hình ảnh hoạt hình là minh họa, không phải tư liệu lịch sử gốc.
+- Phần popup chia lời dẫn thành các đoạn ngắn để tránh thanh cuộn.
