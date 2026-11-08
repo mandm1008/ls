@@ -1,0 +1,38 @@
+SÓNG LỊCH SỬ 1954 — BẢN VOICE TỰ HIỆN NHÂN VẬT (v1.4.0)
+
+THAY ĐỔI
+- Tự hiện GIF phát thanh viên mỗi khi giọng tổng hợp tiếng Việt bắt đầu.
+- Tự đọc lời giới thiệu khi bắt đầu trò chơi.
+- Tự đọc lời dẫn khi chuyển trạm; phản hồi đúng/sai và gợi ý.
+- Khi chọn "Nghe lại đoạn kể" hoặc phát bản tin cuối, nhân vật xuất hiện.
+- Khi video minh họa được phát, nhân vật cũng xuất hiện; khi video dừng thì ẩn.
+- Đoạn thoại hiển thị đồng thời, có thanh tiến độ và nút dừng.
+- Khi lời đọc kết thúc, popup nhân vật tự đóng.
+- Tắt giọng kể ở góc phải trên để tắt cả voice và popup.
+- Giữ bảy trạm, map A/B/C không bị di chuyển khi hover, hệ thống kiểm tra bản HTML mới.
+
+MỞ TRÒ CHƠI
+1. Giải nén trọn bộ ZIP.
+2. Mở index.html trong trình duyệt Chrome/Edge hoặc deploy lên GitHub Pages / Netlify / Cloudflare Pages.
+3. Giữ index.html, version-control.js, nhan_vat_thuyet_trinh.gif cùng thư mục.
+4. Nếu dùng video, giữ thêm video-minh-hoa.mp4 cùng thư mục.
+5. Nhấn BẮT ĐẦU PHÁT SÓNG để kích hoạt giọng đọc và GIF.
+
+VOICE
+- Sử dụng tính năng SpeechSynthesis của trình duyệt, không yêu cầu API key.
+- Trình duyệt cần có giọng đọc tiếng Việt, có thể cần cài thêm giọng Vietnamese trong hệ điều hành.
+- GIF mô phỏng nói chuyện chứ không nhép từng âm tiết khớp với âm thanh.
+- Một số trình duyệt chặn phát giọng khi chưa có tương tác của người dùng.
+
+DEPLOY/UPDATE
+- Mỗi khi index.html đổi, version-control.js kiểm tra tự động mỗi 60 giây khi trang đang mở.
+- Thông báo cập nhật có CẬP NHẬT NGAY và ĐỂ SAU.
+- Trình duyệt sẽ cố gắng giữ tiến trình khi người chơi chọn CẬP NHẬT NGAY.
+- Để tăng version hiển thị: sửa <meta name="game-version" content="1.4.0"> trong index.html.
+- Với Netlify hoặc Cloudflare Pages, dùng file _headers để giảm cache HTML.
+- Trên GitHub Pages, file _headers không có tác dụng; đường dẫn có tham số tránh cache vẫn được kiểm tra.
+
+LƯU Ý HỌC THUẬT
+- Bản đồ chỉ là sơ đồ giáo dục, không theo tỉ lệ.
+- Video và GIF là sản phẩm minh họa, không phải ảnh/tư liệu gốc.
+- Các nguồn lịch sử được liên kết trong menu Tư liệu.

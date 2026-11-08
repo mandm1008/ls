@@ -1,138 +1,58 @@
-/* SÓNG LỊCH SỬ 1954 — Game update watcher (static hosting)
-   Không cần server API, Service Worker hoặc version.json.
-   Tự so sánh bản HTML đang chạy với index.html mới trên host.
-   Mỗi 60 giây và khi quay lại tab, script gửi yêu cầu no-store có cache buster.
-   Khi khác nội dung, hiện popup để người chơi chọn cập nhật hoặc để sau.
-*/
+/* Automatic update detector for a static HTML game.
+   Checks page HTML every 60 seconds and when returning to tab.
+   New versions trigger an opt-in update dialog; no backend needed.
+ */
 (function(){
-  'use strict';
-  var GAME_ID='song-lich-su-1954';
-  var CHECK_INTERVAL=60000;
-  var active=false;
-  var dismissedSignature=null;
-  var latestSignature=null;
-  var lastChecked=0;
-  var toastTimer=null;
-  var pageVersion=document.querySelector('meta[name="game-version"]')?.content || 'không rõ';
-  var currentSignature=window.__SLS1954_INITIAL_SIGNATURE;
-  var fingerprint=window.__SLS1954_SOURCE_SIGNATURE;
-  var modal=document.getElementById('gameUpdateModal');
-  var toast=document.getElementById('gameUpdateToast');
-  if(typeof currentSignature!=='string'||typeof fingerprint!=='function'||!modal)return;
-
-  var button=document.getElementById('checkUpdateBtn');
-  var now=document.getElementById('updateNowBtn');
-  var later=document.getElementById('updateLaterBtn');
-  var title=document.getElementById('updateHeading');
-  var info=document.getElementById('updateVersionInfo');
-  var desc=document.getElementById('updateDescription');
-
-  function siteUrl(){
-    var url=new URL(window.location.href);
-    url.hash='';
-    url.searchParams.delete('_sls_check');
-    url.searchParams.delete('_sls_release');
-    // Site root trên Netlify/GitHub Pages/Cloudflare Pages thường phục vụ index.html.
-    if(url.pathname.endsWith('/'))url.pathname+='index.html';
-    return url;
-  }
-  function toastMessage(message){
-    if(!toast)return;
-    clearTimeout(toastTimer);
-    toast.textContent=message;
-    toast.classList.add('show');
-    toastTimer=setTimeout(function(){toast.classList.remove('show');},3400);
-  }
-  function hideUpdate(){
-    modal.classList.remove('show');
-    modal.setAttribute('aria-hidden','true');
-    document.body.style.removeProperty('overflow');
-  }
-  function showUpdate(signature,version){
-    latestSignature=signature;
-    title.textContent='Có bản cập nhật mới!';
-    desc.textContent='Trang trò chơi trên máy chủ đã thay đổi. Cập nhật để nhận giao diện và nội dung mới nhất.';
-    if(version&&version!==pageVersion){
-      info.textContent='';
-      var label=document.createElement('span');label.textContent='Đang dùng: '+pageVersion+'   →   Bản mới: ';
-      var value=document.createElement('b');value.textContent=version;
-      info.append(label,value);
-    }else{
-      info.textContent='Đã phát hiện nội dung HTML mới (không cần tăng số phiên bản).';
-    }
-    modal.setAttribute('aria-hidden','false');
-    modal.classList.add('show');
-    document.body.style.overflow='hidden';
-    now.focus();
-  }
-  function dismiss(){
-    dismissedSignature=latestSignature;
-    hideUpdate();
-  }
-  async function check(manual){
-    if(active)return;
-    if(!/^https?:$/.test(location.protocol)){
-      if(manual)toastMessage('Kiểm tra cập nhật chỉ hoạt động khi deploy lên website http(s).');
-      return;
-    }
-    active=true;
-    lastChecked=Date.now();
-    var timeoutId;
-    var controller=new AbortController();
-    try{
-      timeoutId=setTimeout(function(){controller.abort();},9000);
-      var url=siteUrl();
-      url.searchParams.set('_sls_check',String(Date.now()));
-      var response=await fetch(url.href,{
-        cache:'no-store',
-        headers:{'Cache-Control':'no-cache'},
-        signal:controller.signal,
-        redirect:'follow'
-      });
-      if(!response.ok)throw new Error('HTTP '+response.status);
-      var source=await response.text();
-      var remote=new DOMParser().parseFromString(source,'text/html');
-      if(remote.querySelector('meta[name="game-id"]')?.content!==GAME_ID){
-        throw new Error('Không tìm thấy đúng HTML trò chơi trên host');
-      }
-      var newSignature=fingerprint(remote);
-      if(newSignature===currentSignature){
-        if(manual)toastMessage('Đây đã là phiên bản mới nhất của trò chơi.');
-        return;
-      }
-      if(dismissedSignature===newSignature&&!manual)return;
-      var version=remote.querySelector('meta[name="game-version"]')?.content||'';
-      showUpdate(newSignature,version);
-    }catch(err){
-      if(manual)toastMessage('Chưa thể kiểm tra cập nhật. Hãy kiểm tra kết nối mạng hoặc bộ nhớ đệm của host.');
-      console.warn('[Sóng Lịch Sử] Kiểm tra bản cập nhật thất bại:',err);
-    }finally{
-      clearTimeout(timeoutId);
-      active=false;
-    }
-  }
-  now.addEventListener('click',function(){
-    try{window.__SLS1954_SAVE_BEFORE_UPDATE?.();}catch(err){console.warn('Save game:',err)}
-    try{if(typeof stopSpeak==='function')stopSpeak();}catch(err){}
-    var url=new URL(location.href);
-    url.searchParams.delete('_sls_check');
-    url.searchParams.set('_sls_release',String(latestSignature||Date.now()).slice(0,16));
-    window.location.replace(url.href);
-  });
-  later.addEventListener('click',dismiss);
-  modal.addEventListener('click',function(e){if(e.target===modal)dismiss();});
-  document.addEventListener('keydown',function(e){
-    if(modal.classList.contains('show')&&e.key==='Escape')dismiss();
-  });
-  if(button)button.addEventListener('click',function(){check(true);});
-  if(/^https?:$/.test(location.protocol)){
-    setTimeout(function(){check(false);},3500);
-    setInterval(function(){if(!document.hidden)check(false);},CHECK_INTERVAL);
-    var whenVisible=function(){
-      if(!document.hidden&&Date.now()-lastChecked>12000)check(false);
-    };
-    document.addEventListener('visibilitychange',whenVisible);
-    window.addEventListener('focus',whenVisible);
-  }
-  window.SongLichSuUpdater={check:check,currentVersion:pageVersion};
+ 'use strict';
+ const gameId='song-lich-su-1954';
+ const ownVersion=document.querySelector('meta[name="game-version"]')?.content||'1.4.0';
+ const modal=document.querySelector('#updateModal'), info=document.querySelector('#updateVersions');
+ const manual=document.querySelector('#checkUpdate');
+ const later=document.querySelector('#updateLater'), now=document.querySelector('#updateNow');
+ if(!modal||!window.SLS_ORIGINAL_HTML)return;
+ const normalize=raw=>{
+  const doc=new DOMParser().parseFromString(raw,'text/html');
+  // Updater itself is loaded after gameLogic and is excluded from baseline snapshot.
+  doc.querySelectorAll('script:not(#gameLogic)').forEach(el=>el.remove());
+  // Ignore whitespace-only top-level nodes added when the updater script is removed.
+  for(const parent of [doc.head,doc.body]){[...parent.childNodes].filter(n=>n.nodeType===3&&!n.textContent.trim()).forEach(n=>n.remove());}
+  return doc.documentElement.outerHTML;
+ };
+ function digest(str){let a=2166136261,b=0x9e3779b9;for(let i=0;i<str.length;i++){let n=str.charCodeAt(i);a=Math.imul(a^n,16777619);b=Math.imul(b^n,2246822519)}return (a>>>0).toString(16)+(b>>>0).toString(16)}
+ const baseline=digest(normalize(window.SLS_ORIGINAL_HTML));
+ let busy=false,lastCheck=0,pending=null,dismissed=null,toastTimer;
+ function toast(msg){let box=document.getElementById('checkToast');if(!box){box=document.createElement('div');box.id='checkToast';box.setAttribute('role','status');box.style.cssText='position:fixed;left:20px;bottom:20px;z-index:90;background:#253d2e;border:1px solid #d3b77a;color:#f8edcd;padding:12px 16px;border-radius:11px;font-size:12px;box-shadow:0 9px 38px #0009';document.body.appendChild(box)}box.textContent=msg;box.style.display='block';clearTimeout(toastTimer);toastTimer=setTimeout(()=>box.style.display='none',3500)}
+ async function check(forced){
+  if(busy)return;
+  if(!/^https?:$/.test(location.protocol)){if(forced)toast('Kiểm tra cập nhật hoạt động khi game được deploy lên website.');return;}
+  busy=true;lastCheck=Date.now();const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),12000);
+  try{
+   const url=new URL(location.href);url.hash='';url.searchParams.delete('_update_release');url.searchParams.delete('_update_check');if(url.pathname.endsWith('/'))url.pathname+='index.html';
+   url.searchParams.set('_update_check',String(Date.now()));
+   const resp=await fetch(url.href,{cache:'no-store',headers:{'Cache-Control':'no-cache'},signal:controller.signal});
+   if(!resp.ok)throw new Error('HTTP '+resp.status);
+   const html=await resp.text(),doc=new DOMParser().parseFromString(html,'text/html');
+   if(doc.querySelector('meta[name="game-id"]')?.content!==gameId)throw new Error('Không tìm thấy trò chơi tại đường dẫn này');
+   const hash=digest(normalize(html));
+   if(hash===baseline){if(forced)toast('Đây đã là bản mới nhất của trò chơi.');return;}
+   if(hash===dismissed&&!forced)return;
+   pending=hash;
+   const nextVersion=doc.querySelector('meta[name="game-version"]')?.content||'bản mới';
+   info.textContent=nextVersion===ownVersion?'Đã phát hiện thay đổi HTML (không cần tăng số phiên bản).':`Đang dùng: ${ownVersion}   →   Bản mới: ${nextVersion}`;
+   modal.classList.add('show');
+  }catch(e){if(forced)toast('Chưa kiểm tra được bản mới. Vui lòng thử lại.');console.warn('Game update check:',e)}
+  finally{clearTimeout(timeout);busy=false}
+ }
+ function hide(){modal.classList.remove('show');}
+ manual?.addEventListener('click',()=>check(true));
+ later?.addEventListener('click',()=>{dismissed=pending;hide()});
+ now?.addEventListener('click',()=>{try{window.saveVoiceGame?.()}catch(e){}try{window.speechSynthesis?.cancel()}catch(e){}const url=new URL(location.href);url.searchParams.delete('_update_check');url.searchParams.set('_update_release',pending||Date.now());location.replace(url.href)});
+ modal.addEventListener('click',e=>{if(e.target===modal){dismissed=pending;hide()}});
+ if(/^https?:$/.test(location.protocol)){
+  setTimeout(()=>check(false),3500);
+  setInterval(()=>{if(!document.hidden)check(false)},60000);
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden&&Date.now()-lastCheck>12000)check(false)});
+  window.addEventListener('focus',()=>{if(Date.now()-lastCheck>12000)check(false)});
+ }
+ window.SongLichSuUpdater={check,version:ownVersion};
 })();
