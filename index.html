@@ -1,102 +1,1453 @@
 <!DOCTYPE html>
-<html lang="vi"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#10231c">
-<meta name="game-id" content="song-lich-su-1954"><meta name="game-version" content="1.4.0">
-<title>SÓNG LỊCH SỬ 1954 · 7 trạm phát thanh</title>
-<style>
-:root{--bg:#0b1916;--surface:#142c23;--surface2:#1b362a;--outline:#4c6b53;--ivory:#f6ecd9;--gold:#edc77c;--mute:#b4c5b4;--red:#dc725f;--green:#92cc98}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 15% -8%,#385139 0,transparent 37%),radial-gradient(ellipse at 100% 80%,#333520,transparent 40%),var(--bg);color:var(--ivory);font:15px/1.65 system-ui,-apple-system,'Segoe UI',Arial,sans-serif;min-height:100vh}button,input{font:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.5}button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}h1,h2,h3,p{margin-top:0}a{color:var(--gold)}.wrap{max-width:1240px;margin:auto;padding:0 22px}header{background:#0e1d18eb;border-bottom:1px solid #6d80623a;position:sticky;top:0;z-index:25;backdrop-filter:blur(15px)}header .wrap{min-height:75px;display:flex;align-items:center;justify-content:space-between;gap:15px}.logo{display:flex;gap:12px;align-items:center}.logo-icon{width:42px;height:42px;border:1px solid #a59165;border-radius:50%;display:grid;place-items:center;color:var(--gold);font-size:23px}.logo b{font-size:13px;letter-spacing:1.6px}.logo small{display:block;color:var(--mute);font-size:10px;letter-spacing:1.3px}.tools{display:flex;gap:7px}.tool{background:#263b30;border:1px solid #60745d;color:#e5e9d8;border-radius:10px;padding:9px 12px;font-size:12px;font-weight:750}.tool:hover{background:#3c4c39}.hero{display:grid;grid-template-columns:1.4fr .6fr;align-items:center;gap:25px;padding:40px 0 35px}.eyebrow{color:var(--gold);font-weight:900;letter-spacing:2px;font-size:12px}.hero h1{font-size:clamp(53px,7vw,90px);line-height:.99;letter-spacing:-2px;margin:15px 0 18px;font-weight:1000}.hero h1 span{color:var(--gold)}.hero p{color:#c5d2c3;max-width:620px;font-size:15px}.pillset{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}.pillset span{padding:7px 11px;border:1px solid #57725b;border-radius:7px;font-size:11px;color:#e2e4d7}.radio-art{background:repeating-linear-gradient(90deg,#29271c 0px,#332d20 7px,#22271e 11px);border:2px solid #a98b58;padding:16px;border-radius:20px;box-shadow:0 28px 60px #0006;transform:rotate(1deg)}.radio-inner{background:#1d3027;border:1px solid #8a8060;border-radius:9px;padding:17px}.radio-inner small{color:var(--gold);font-weight:800;letter-spacing:2px}.freq{border:1px solid #8e7755;background:#0e211b;color:#e4c990;font-size:12px;padding:19px 12px;margin:14px 0;display:flex;justify-content:space-around;position:relative}.freq:after{content:"";position:absolute;height:53px;top:0;left:52%;width:3px;background:#e7b96a;box-shadow:0 0 11px #e5b265}.bars{display:flex;justify-content:center;gap:4px;align-items:center;height:42px;background:#10241b;padding:10px}.bars i{height:var(--h);width:4px;border-radius:4px;background:#f1cd7b;animation:wave 1.2s infinite alternate;animation-delay:var(--d)}@keyframes wave{to{height:5px}}.radio-bottom{font-size:11px;display:flex;justify-content:space-between;color:#bdc9b9;margin-top:15px}.sectionhead{font-weight:900;font-size:12px;letter-spacing:2px;color:#e9e5cf;margin:4px 0 13px}.stations{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:9px;margin-bottom:17px}.station{background:#172d24;border:1px solid #4a6a50;border-radius:9px;min-height:83px;padding:10px;text-align:left;color:var(--ivory);position:relative}.station span{display:block;font-size:10px;color:#dfbd79;letter-spacing:1.2px;font-weight:900}.station strong{display:block;font-size:11px;margin-top:9px;line-height:1.3}.station.active{border-color:#e9bb68;background:#3b452d}.station.done{border-color:#7caa7f}.station.done:after{content:'✓';position:absolute;right:7px;top:4px;color:var(--green)}.station.locked{opacity:.5}.main-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(290px,.75fr);gap:17px;margin-bottom:39px}.panel{background:linear-gradient(145deg,#173026,#11241c);border:1px solid #4b6752;border-radius:15px;overflow:hidden;box-shadow:0 13px 40px #0004}.panel-top{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #4d6b54;padding:16px 22px;align-items:center}.status{color:var(--gold);font-size:11px;font-weight:850;letter-spacing:1px}.score{font-size:13px;color:#e8d5a7;font-weight:900}.stage-body{padding:26px;min-height:500px}.kicker{font-size:11px;color:var(--gold);font-weight:900;letter-spacing:1.3px}.stage-body h2{font-size:30px;line-height:1.28;margin:10px 0}.stage-desc{color:var(--mute);font-size:14px;margin-bottom:20px}.prompt{background:#0f251d;border:1px solid #617052;border-left:4px solid var(--gold);border-radius:8px;padding:13px 15px;margin:19px 0;color:#eadfc4;font-size:14px;font-weight:650}.btn{background:var(--gold);border:1px solid #d4a766;color:#17231c;border-radius:9px;padding:11px 16px;font-weight:850;font-size:12px}.btn:hover:not(:disabled){filter:brightness(1.09)}.btn.alt{background:#243f30;color:var(--ivory);border-color:#6a875f}.btn.light{padding:8px 11px;font-size:11px}.actions{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;margin-top:22px}.options{display:grid;gap:10px}.option{display:flex;gap:12px;align-items:center;text-align:left;width:100%;padding:13px 15px;background:#223d30;border:1px solid #5b785e;border-radius:9px;color:#f6f0df}.option:hover:not(:disabled){border-color:#dec18a;background:#304a36}.letter{display:grid;place-items:center;width:32px;height:32px;flex-shrink:0;border-radius:7px;border:1px solid #a8905c;color:var(--gold);font-weight:800}.feedback{border:1px solid #548861;background:#193d2a;padding:15px;border-radius:9px;margin:15px 0;font-size:13px;color:#e2f0d8}.feedback.error{background:#482c27;border-color:#a76251}.aside{display:grid;align-content:start;gap:16px}.aside .pad{padding:19px}.aside h3{font-size:14px;margin-bottom:12px}.onair{background:#4c2e24;border:1px solid #b57661;color:#f5ccb4;padding:9px 12px;border-radius:8px;display:flex;justify-content:space-between;font-size:11px;font-weight:900}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#e7725c;box-shadow:0 0 0 4px #e7725c25;margin-right:8px}.tapes{display:flex;gap:6px;margin:19px 0}.tapes i{height:8px;border-radius:5px;flex:1;background:#42614a}.tapes i.done{background:var(--gold);box-shadow:0 0 12px #eac66b5a}.line{display:flex;justify-content:space-between;font-size:12px;color:var(--mute);margin-top:11px;gap:10px}.line b{color:#f5e9cc}.timeline{border-left:1px solid #617456;margin-left:7px;padding-left:17px}.timeline p{position:relative;color:#b9cbb7;font-size:12px;margin-bottom:16px}.timeline p:before{content:"";position:absolute;left:-23px;top:7px;background:var(--gold);width:10px;height:10px;border-radius:50%}.timeline b{display:block;color:var(--gold);font-size:11px}.foot{border-top:1px solid #55715a33;padding:22px 0 30px;color:#a5b5a4;font-size:11px}.map svg{display:block;width:100%;height:auto;border:5px solid #756a49;border-radius:9px;background:#d2c49b}.map-point{cursor:pointer}.map-point circle{fill:#2e483a;stroke:#fff0be;stroke-width:3;transition:stroke .2s,filter .2s}.map-point:hover circle,.map-point:focus-visible circle{stroke:#fff;filter:drop-shadow(0 0 7px #e8ac54)}.map-point text{font-size:17px;fill:white;text-anchor:middle;pointer-events:none;font-weight:800}.cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}.decision{border:1px solid #678468;background:#203a30;color:var(--ivory);border-radius:10px;padding:16px;text-align:left}.decision strong{display:block;margin-bottom:7px;font-size:17px}.decision small{color:var(--mute);font-size:12px}.paircol{display:grid;gap:9px}.pairs{display:grid;grid-template-columns:1fr 1fr;gap:12px}.pair{border:1px solid #688365;color:#ede9d8;background:#254133;border-radius:9px;padding:13px;text-align:left;min-height:70px;font-size:12px}.pair.sel{border-color:var(--gold);background:#63562d}.pair.done{border-color:var(--green);background:#24553b}.selected{border:1px dashed #bca16d;border-radius:8px;min-height:64px;padding:12px;margin:12px 0;display:flex;gap:7px;flex-wrap:wrap;color:var(--mute);font-size:12px}.chip{background:#58613f;border:1px solid #beaa6d;border-radius:7px;color:white;padding:8px}.event{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#223a2e;border:1px solid #557656;padding:12px;border-radius:8px;margin:8px 0;font-size:13px}.event b{color:var(--gold)}.waves{display:flex;gap:9px;margin-bottom:12px}.wavebtn{flex:1;border:1px solid #567556;background:#254334;color:white;border-radius:7px;padding:9px;font-weight:800}.wavebtn.sel{border-color:var(--gold);background:#534b2c}.wavebtn.done{border-color:var(--green)}.waveinfo{background:#233c30;padding:15px;border:1px solid #61715a;border-radius:8px;margin-bottom:12px}.waveinfo strong{font-size:23px;color:var(--gold)}.signal{border:1px solid #668163;border-radius:9px;padding:13px;margin:10px 0;background:#20392d}.signal small{color:var(--gold);font-weight:800}.signal h4{margin:5px 0 11px}.signal div{display:flex;gap:9px}.signal button{flex:1;border:1px solid #557a5b;background:#2b4736;color:white;border-radius:8px;padding:10px;font-size:11px}.signal button.sel{background:#66562b;border-color:var(--gold)}.check{display:flex;align-items:start;gap:10px;padding:13px;border:1px solid #688065;border-radius:9px;background:#234133;margin:9px 0;font-size:13px}.check input{margin:4px 0;accent-color:var(--gold);width:16px;height:16px}.hint{font-size:12px;color:var(--gold);padding:10px 13px;border:1px solid #a68e5c;background:#4d472b;border-radius:8px;margin-top:10px}
-/* Narrator shown whenever voice actually speaks */
-.narrator{position:fixed;right:20px;bottom:20px;width:min(525px,calc(100vw - 24px));z-index:95;display:none;background:linear-gradient(145deg,#1c3329,#10231d);border:1px solid #c3a16b;border-radius:19px;overflow:hidden;box-shadow:0 22px 90px #000b}.narrator.show{display:block;animation:appear .23s}.narrator-head{display:flex;justify-content:space-between;align-items:center;gap:8px;background:#294034;padding:10px 14px;border-bottom:1px solid #66856a}.narrator-head span{color:var(--gold);font-size:11px;letter-spacing:1.5px;font-weight:900}.narrator-head button{border:1px solid #718365;border-radius:7px;background:#183026;color:white;padding:5px 10px;font-size:11px}.narrator-main{display:grid;grid-template-columns:155px minmax(0,1fr);padding:12px;gap:13px}.narrator-face{background:#f8d0a6;border:1px solid #c2a270;border-radius:12px;overflow:hidden;min-height:153px}.narrator-face img{display:block;width:100%;height:100%;object-fit:cover}.narrator-copy{min-width:0;display:flex;flex-direction:column}.narrator-copy small{font-weight:800;font-size:10px;letter-spacing:1px;color:var(--gold)}.narrator-copy b{font-size:17px;margin:5px 0}.narrator-copy p{color:#e5e8da;font-size:13px;line-height:1.7;margin:0;flex:1;overflow-wrap:anywhere}.progresslabel{display:flex;justify-content:space-between;color:#c4d2c2;font-size:10px;font-weight:800;margin-top:9px}.progress{height:5px;background:#52705b;border-radius:9px;overflow:hidden;margin-top:6px}.progress span{display:block;width:0;height:100%;background:var(--gold);transition:width .2s}.narrator-bottom{background:#11281e;color:#c9d4c1;border-top:1px solid #5f745c;padding:7px 13px;font-size:10px;letter-spacing:.5px}.narrator-bottom .dot{width:6px;height:6px;box-shadow:none;animation:pulse 1s infinite}@keyframes pulse{50%{opacity:.2}}@keyframes appear{from{transform:translateY(8px);opacity:0}to{transform:none;opacity:1}}
-.overlay{position:fixed;inset:0;z-index:80;display:none;align-items:center;justify-content:center;padding:18px;background:#000b;backdrop-filter:blur(7px)}.overlay.show{display:flex}.dialog{background:linear-gradient(145deg,#213c2d,#11271e);border:1px solid #af925e;box-shadow:0 25px 80px #000c;border-radius:17px;padding:26px;max-width:700px;width:100%;max-height:90vh;overflow:auto}.dialog h2{font-size:32px;color:#f4e8c4;margin:6px 0 12px}.dialog p{color:#c3d3c0;font-size:13px}.dialog input[type=text]{width:100%;padding:12px 13px;background:#0e261b;border:1px solid #8d916d;border-radius:9px;color:white;margin:12px 0}.dialog label{font-weight:800;font-size:12px}.dialog .modal-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}.dialog video{width:100%;max-height:60vh;background:#000;border-radius:9px}.report{white-space:pre-wrap;background:#0f251b;border:1px solid #547055;border-radius:9px;padding:16px;font-size:12px;line-height:1.9;max-height:300px;overflow:auto}.results{display:flex;gap:10px;margin:14px 0}.results div{flex:1;border:1px solid #668463;border-radius:9px;padding:12px;text-align:center}.results b{display:block;font-size:27px;color:var(--gold)}.results small{font-size:10px;color:#c4d3c5}.updateDialog h2{font-size:31px}#updateModal{z-index:110}.updateVersions{border:1px solid #798660;background:#172f24;padding:11px;border-radius:8px;color:var(--gold);margin:12px 0;font-size:12px}
-@media(max-width:900px){.hero{grid-template-columns:1fr}.radio-art{max-width:450px}.main-grid{grid-template-columns:1fr}.aside{grid-template-columns:1fr 1fr}.stations{grid-template-columns:repeat(7,133px);overflow-x:auto}.station{min-width:133px}}@media(max-width:600px){.wrap{padding:0 13px}.logo small{display:none}.logo b{font-size:11px}.tool span{display:none}.hero h1{font-size:52px}.hero{padding:24px 0}.aside{grid-template-columns:1fr}.stage-body{padding:17px}.stage-body h2{font-size:25px}.cards{grid-template-columns:1fr}.narrator{left:10px;right:10px;bottom:10px;width:auto}.narrator-main{grid-template-columns:116px 1fr;gap:9px;padding:9px}.narrator-face{min-height:120px}.narrator-copy b{font-size:14px}.narrator-copy p{font-size:11px;line-height:1.55}.narrator-head span{font-size:9px}.dialog{padding:20px}.dialog h2{font-size:26px}.signal div{flex-direction:column}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
-</style>
-</head><body>
-<header><div class="wrap"><div class="logo"><div class="logo-icon">◉</div><div><b>ĐÀI PHÁT THANH LỊCH SỬ</b><small>CHUYÊN ĐỀ ĐIỆN BIÊN PHỦ · 1954</small></div></div><div class="tools"><button class="tool" id="voiceBtn" title="Bật hoặc tắt giọng kể">🔊 <span>Giọng kể: Bật</span></button><button class="tool" id="checkUpdate" title="Kiểm tra bản mới">↻ <span>Cập nhật</span></button><button class="tool" id="sourcesBtn" title="Nguồn tư liệu">ⓘ <span>Tư liệu</span></button></div></div></header>
-<main class="wrap"><section class="hero"><div><div class="eyebrow"><span class="dot"></span> CHƯƠNG TRÌNH PHÁT SÓNG ĐẶC BIỆT</div><h1>SÓNG LỊCH SỬ<br><span>1954</span></h1><p>56 ngày đêm Điện Biên Phủ qua bảy trạm phát thanh. Khôi phục những cột mốc lịch sử và nghe phát thanh viên hoạt hình kể lại sự kiện mỗi khi giọng đọc vang lên.</p><div class="pillset"><span>7 trạm tương tác</span><span>Nhân vật kể chuyện tự động</span><span>Bản tin cuối trò chơi</span></div></div><div class="radio-art"><div class="radio-inner"><small>HISTORIA RADIO / 1954</small><div class="freq"><span>1930</span><span>1945</span><span>1954</span><span>1975</span><span>1986</span></div><div id="bars" class="bars"></div><div class="radio-bottom"><span>● ON AIR</span><span>13.03 – 07.05</span></div></div></div></section>
-<h3 class="sectionhead">◈ BẢY TRẠM KHÔI PHỤC BẢN TIN</h3><nav class="stations" id="stations"></nav><div class="main-grid"><section class="panel"><div class="panel-top"><span class="status" id="status">SẴN SÀNG PHÁT SÓNG</span><span class="score" id="score">0 ĐIỂM</span></div><div class="stage-body" id="stageBody"></div></section><aside class="aside"><section class="panel"><div class="pad"><div class="onair"><span><i class="dot"></i> ĐANG KHÔI PHỤC</span><b id="airInfo">0 / 7</b></div><h3 style="margin:20px 0 8px">Các băng tín hiệu</h3><div class="tapes" id="tapes"></div><div class="line"><span>Đội tham gia</span><b id="teamInfo">—</b></div><div class="line"><span>Trạm đã hoàn thành</span><b id="doneInfo">0/7</b></div><p style="font-size:12px;color:#b1c5b0;margin:18px 0 12px">Mỗi trạm khôi phục một phần của bản tin. Nhân vật tự xuất hiện khi có giọng kể và ẩn khi dừng.</p><button class="btn alt" id="videoBtn">▶ Xem video minh họa</button></div></section><section class="panel"><div class="pad"><h3>CÁC MỐC LỊCH SỬ</h3><div class="timeline"><p><b>26/01/1954</b>Chuyển sang “đánh chắc, tiến chắc”.</p><p><b>13/03/1954</b>Trận Him Lam mở màn.</p><p><b>30/03/1954</b>Bắt đầu đợt tiến công thứ hai.</p><p><b>01–07/05/1954</b>Đợt ba và tổng công kích.</p><p><b>07/05/1954</b>Chiến thắng Điện Biên Phủ.</p></div></div></section></aside></div></main>
-<footer class="wrap foot">SÓNG LỊCH SỬ 1954 · Trò chơi giáo dục được hỗ trợ xây dựng bằng AI · Bản đồ minh họa không theo tỉ lệ</footer>
-<!-- Global narrator: one panel shared by all voice sources -->
-<div class="narrator" id="narrator" role="status" aria-live="polite"><div class="narrator-head"><span><i class="dot"></i> PHÁT THANH VIÊN ĐANG KỂ CHUYỆN</span><button id="narratorStop">■ DỪNG</button></div><div class="narrator-main"><div class="narrator-face"><img id="narratorGif" src="nhan_vat_thuyet_trinh.gif" alt="Nhân vật hoạt hình đeo kính mặc vest đang thuyết minh"></div><div class="narrator-copy"><small>TRỰC TIẾP · 1954</small><b id="narratorTitle">Lời dẫn lịch sử</b><p id="narratorLine"></p><div class="progresslabel"><span>ĐANG KỂ CHUYỆN</span><span id="narratorCount">01 / 01</span></div><div class="progress"><span id="narratorProgress"></span></div></div></div><div class="narrator-bottom"><i class="dot"></i> TRUYỀN THANH LỊCH SỬ · ĐIỆN BIÊN PHỦ</div></div>
-<div class="overlay show" id="welcome"><div class="dialog"><div class="eyebrow">KHỞI ĐỘNG ĐÀI PHÁT THANH</div><h2>Khôi phục Sóng Lịch Sử 1954</h2><p>Khám phá bảy câu chuyện của chiến dịch. Khi bắt đầu, nhân vật hoạt hình sẽ tự kể lời giới thiệu. Giọng đọc có thể tắt bất cứ lúc nào.</p><label for="teamInput">Tên đội hoặc người chơi</label><input id="teamInput" type="text" maxlength="40" value="Đội Lịch Sử" placeholder="Nhập tên đội"><div class="modal-actions"><button class="btn" id="startBtn">BẮT ĐẦU PHÁT SÓNG →</button><button class="btn alt" id="watchIntro">▶ VIDEO MỞ ĐẦU</button></div><p style="font-size:11px">Website chơi được offline. Giọng tiếng Việt phụ thuộc vào trình duyệt và thiết bị; GIF chỉ minh họa chuyển động, không đồng bộ từng âm tiết.</p></div></div>
-<div class="overlay" id="videoModal"><div class="dialog"><h2>Video hoạt hình minh họa</h2><p>Video do nhóm cung cấp; đây là hình minh họa sáng tạo, không phải ảnh tư liệu gốc.</p><video id="video" controls preload="metadata" playsinline><source src="video-minh-hoa.mp4" type="video/mp4"></video><div class="modal-actions"><button class="btn alt" id="videoClose">ĐÓNG VIDEO</button></div></div></div>
-<div class="overlay" id="finalModal"><div class="dialog"><div class="eyebrow">07 / 07 TRẠM KHÔI PHỤC</div><h2>Bản tin chiến thắng đã hoàn thành</h2><div class="results" id="results"></div><div class="report" id="report"></div><div class="modal-actions"><button class="btn" id="playFull">▶ PHÁT TOÀN BỘ BẢN TIN</button><button class="btn alt" id="stopFull">■ DỪNG VOICE</button><button class="btn alt" id="downloadScript">↓ TẢI LỜI DẪN</button><button class="btn alt" id="restart">↻ CHƠI LẠI</button></div><p style="font-size:11px">Khi phát bản tin, nhân vật kể chuyện tự xuất hiện. Nhấn Dừng để tắt cả giọng và nhân vật.</p></div></div>
-<div class="overlay" id="sourcesModal"><div class="dialog"><h2>Tài liệu kiểm chứng</h2><p>Các mốc dựa trên nội dung tư liệu lịch sử; sơ đồ là minh họa giáo dục.</p><p><a target="_blank" rel="noopener" href="https://dienbienphu.nhandan.vn/">Báo Nhân Dân: Điện Biên Phủ</a></p><p><a target="_blank" rel="noopener" href="https://btctdbp.svhttdl.dienbien.gov.vn/">Bảo tàng Chiến thắng Điện Biên Phủ</a></p><p><a target="_blank" rel="noopener" href="https://baochinhphu.vn/chien-dich-dien-bien-phu-3-dot-tan-cong-ac-liet-10224050209051285.htm">Báo Chính phủ: Ba đợt tiến công</a></p><button class="btn alt" id="sourcesClose">ĐÓNG</button></div></div>
-<div class="overlay" id="updateModal" role="alertdialog" aria-labelledby="updateTitle"><div class="dialog updateDialog"><div class="eyebrow">CÓ PHIÊN BẢN MỚI</div><h2 id="updateTitle">Sóng lịch sử đã được cập nhật!</h2><p>Website đã có nội dung HTML mới. Tải lại để nhận bản mới nhất và tiếp tục hành trình.</p><div class="updateVersions" id="updateVersions"></div><div class="modal-actions"><button class="btn" id="updateNow">↻ CẬP NHẬT NGAY</button><button class="btn alt" id="updateLater">ĐỂ SAU</button></div></div></div>
-<script id="gameLogic">
-'use strict';
-const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-const data=[
-{short:'Bản đồ',title:'Truy tìm chiến trường Điện Biên',date:'1953–1954',prompt:'Chọn vị trí Điện Biên Phủ trên sơ đồ cách điệu vùng Tây Bắc.',fact:'Điện Biên Phủ nằm ở vùng Tây Bắc Việt Nam, gần biên giới Lào. Quân Pháp đã xây dựng nơi đây thành một tập đoàn cứ điểm.',voice:'Trạm một. Điện Biên Phủ thuộc vùng Tây Bắc Việt Nam, gần biên giới Lào. Tại đây, quân Pháp xây dựng tập đoàn cứ điểm lớn. Chiến dịch Điện Biên Phủ đã trở thành một dấu mốc quan trọng trong cuộc kháng chiến chống thực dân Pháp.'},
-{short:'Quyết định',title:'Quyết định thay đổi cục diện',date:'26/01/1954',prompt:'Phương châm tác chiến nào được chuyển sang ngày 26/1/1954?',fact:'Đại tướng Võ Nguyên Giáp quyết định chuyển từ đánh nhanh, giải quyết nhanh sang đánh chắc, tiến chắc.',voice:'Trạm hai. Ngày 26 tháng một năm 1954, Đại tướng Võ Nguyên Giáp quyết định chuyển sang phương châm đánh chắc, tiến chắc. Quyết định này giúp quân ta có thời gian chuẩn bị trận địa và tổ chức chiến đấu thận trọng hơn.'},
-{short:'Hậu cần',title:'Sức mạnh từ hậu phương',date:'Đầu năm 1954',prompt:'Ghép đúng lực lượng, phương tiện với vai trò hậu cần.',fact:'Dân công hỏa tuyến, xe đạp thồ và bộ đội kéo pháo đã góp phần bảo đảm lương thực, đạn dược và vũ khí cho chiến dịch.',voice:'Trạm ba. Dân công hỏa tuyến, xe đạp thồ và lực lượng kéo pháo góp phần quan trọng vào thành công của chiến dịch. Hậu cần đã trở thành một sức mạnh của toàn dân.'},
-{short:'Mở màn',title:'Khôi phục bản tin mở màn',date:'13–17/03/1954',prompt:'Xếp ba sự kiện dưới đây từ sớm đến muộn.',fact:'Ngày 13/3 mở màn tại Him Lam; ngày 15/3 tiến công Độc Lập; ngày 17/3 Bản Kéo đầu hàng, các cứ điểm vòng ngoài phía bắc bị phá vỡ.',voice:'Trạm bốn. Ngày 13 tháng ba năm 1954, chiến dịch mở màn bằng trận Him Lam. Tiếp đó, quân ta tiến công Độc Lập, rồi Bản Kéo đầu hàng. Tuyến phòng thủ phía bắc bị phá vỡ.'},
-{short:'Ba đợt',title:'Giải mã ba đợt tiến công',date:'13/03–07/05/1954',prompt:'Xác định nội dung đúng của từng đợt trong 56 ngày đêm.',fact:'Đợt một từ 13–17/3 phá vỡ phòng tuyến phía bắc; đợt hai từ 30/3 đến 30/4 tiến công các cứ điểm phía đông và siết vòng vây; đợt ba từ 1–7/5 tổng công kích.',voice:'Trạm năm. Chiến dịch Điện Biên Phủ diễn ra qua ba đợt tiến công. Đợt đầu phá vỡ phòng tuyến phía bắc. Đợt hai tập trung vào các cứ điểm phía đông. Đợt cuối là giai đoạn tổng công kích dẫn tới chiến thắng.'},
-{short:'Chiến thắng',title:'Tín hiệu ngày chiến thắng',date:'06–07/05/1954',prompt:'Kiểm chứng ba bản tin về những giờ phút cuối chiến dịch.',fact:'Tối 6/5 khối bộc phá trên đồi A1 phát nổ. Ngày 7/5 quân ta làm chủ A1 và chiều cùng ngày chiếm sở chỉ huy, buộc tướng De Castries đầu hàng.',voice:'Trạm sáu. Tối ngày 6 tháng năm, khối bộc phá trên đồi A1 được kích nổ. Ngày 7 tháng năm, quân ta làm chủ đồi A1. Chiều cùng ngày, sở chỉ huy tập đoàn cứ điểm bị chiếm, tướng Đờ Cát và bộ tham mưu đầu hàng.'},
-{short:'Ý nghĩa',title:'Thông điệp gửi hậu thế',date:'1954',prompt:'Chọn ba nhận định lịch sử đúng để hoàn tất bản tin.',fact:'Chiến thắng Điện Biên Phủ góp phần tạo điều kiện cho Hiệp định Genève năm 1954 và cổ vũ phong trào giải phóng dân tộc trên thế giới.',voice:'Trạm bảy. Chiến thắng Điện Biên Phủ có ý nghĩa to lớn trong cuộc kháng chiến của nhân dân Việt Nam, góp phần tạo điều kiện ký kết Hiệp định Giơ-ne-vơ năm 1954, và cổ vũ nhiều phong trào giải phóng dân tộc.'}
-];
-const state={started:false,team:'Đội Lịch Sử',stage:0,done:new Set(),score:0,errors:0,hints:0,hinted:false,misses:0,msg:'',selectedLeft:null,pairs:[],order:[],wave:0,waveCorrect:{},signals:{},verify:[]};
-const narrator={enabled:true,speechId:0,on:false,source:'',stopAfter:null};
-const INTRO='Đây là chương trình Sóng Lịch Sử 1954. Hãy cùng tìm hiểu Chiến dịch Điện Biên Phủ qua bảy trạm phát thanh tương tác.';
-const OUTRO='Ngày 7 tháng 5 năm 1954, Chiến dịch Điện Biên Phủ kết thúc thắng lợi. Đó là một mốc son lịch sử của dân tộc Việt Nam. Chương trình Sóng Lịch Sử 1954 xin kết thúc tại đây.';
-function escapeHtml(x){return String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-function splitText(t){const sentences=(String(t).match(/[^.!?]+[.!?]?/g)||[t]).map(s=>s.trim()).filter(Boolean);const list=[];for(let sentence of sentences){while(sentence.length>138){let ix=sentence.lastIndexOf(' ',138);if(ix<60)ix=138;list.push(sentence.slice(0,ix).trim());sentence=sentence.slice(ix).trim();}if(sentence)list.push(sentence);}return list;}
-function narratorShow(text,title,pos,total){$('#narrator').classList.add('show');$('#narratorTitle').textContent=title||'Phát thanh viên';$('#narratorLine').textContent=text;$('#narratorCount').textContent=`${String(pos+1).padStart(2,'0')} / ${String(total).padStart(2,'0')}`;$('#narratorProgress').style.width=`${100*(pos+1)/total}%`;narrator.on=true;}
-function voiceStop(){narrator.speechId++;narrator.on=false;narrator.source='';if(narrator.stopAfter){clearTimeout(narrator.stopAfter);narrator.stopAfter=null;}if('speechSynthesis' in window)try{speechSynthesis.cancel();}catch(e){}$('#narrator').classList.remove('show');}
-function voiceSay(text,title='Bản tin lịch sử'){
- voiceStop();if(!narrator.enabled)return;
- if(!('speechSynthesis' in window)||!('SpeechSynthesisUtterance' in window))return;
- const pieces=splitText(text);if(!pieces.length)return;
- const voice=speechSynthesis.getVoices().find(v=>v.lang&&v.lang.toLowerCase().startsWith('vi'));
- const current=narrator.speechId;let i=0;narrator.source='tts';
- function next(){if(narrator.speechId!==current||!narrator.enabled)return;if(i>=pieces.length){narrator.stopAfter=setTimeout(()=>{if(narrator.speechId===current)voiceStop();},650);return;}
- const piece=pieces[i],index=i++;const u=new SpeechSynthesisUtterance(piece);u.lang='vi-VN';u.rate=.91;u.pitch=.96;if(voice)u.voice=voice;
- let started=false;u.onstart=()=>{if(narrator.speechId!==current)return;started=true;narratorShow(piece,title,index,pieces.length)};
- u.onend=()=>{if(narrator.speechId===current)next()};u.onerror=()=>{if(narrator.speechId===current)voiceStop()};
- try{speechSynthesis.speak(u)}catch(e){voiceStop()}
- }
- next();
-}
-function videoNarrator(show){if(show){voiceStop();if(!narrator.enabled)return;narrator.speechId++;narrator.source='video';narratorShow('Đang phát phim hoạt hình minh họa do nhóm thực hiện.','Giới thiệu tư liệu',0,1)}else if(narrator.source==='video'){voiceStop();}}
-function overlay(id,show){$('#'+id).classList.toggle('show',!!show);}
-function speakRound(){voiceSay(`Trạm ${state.stage+1}. ${data[state.stage].title}. ${data[state.stage].prompt}`,'Giới thiệu trạm '+(state.stage+1));}
-function boot(){for(let i=0;i<28;i++){let el=document.createElement('i');el.style.setProperty('--h',(6+Math.random()*22)+'px');el.style.setProperty('--d',(-Math.random())+'s');$('#bars').append(el);}render();}
-function render(){const d=data[state.stage];$('#stations').innerHTML=data.map((v,i)=>`<button class="station ${state.done.has(i)?'done':state.started&&i===state.stage?'active':'locked'}" data-station="${i}" ${!state.started||(!state.done.has(i)&&i!==state.stage)?'disabled':''}><span>TRẠM ${String(i+1).padStart(2,'0')}</span><strong>${escapeHtml(v.short)}</strong></button>`).join('');$$('[data-station]').forEach(b=>b.onclick=()=>{state.stage=+b.dataset.station;state.msg='';state.hinted=false;voiceStop();render();});$('#score').textContent=`${state.score.toLocaleString('vi-VN')} ĐIỂM`;$('#tapes').innerHTML=data.map((_,i)=>`<i class="${state.done.has(i)?'done':''}"></i>`).join('');$('#doneInfo').textContent=$('#airInfo').textContent=`${state.done.size}/7`;$('#teamInfo').textContent=state.team;$('#status').textContent=state.started?`TRẠM ${state.stage+1}/7 · ${state.done.has(state.stage)?'ĐÃ KHÔI PHỤC':'ĐANG KHÔI PHỤC'}`:'CHỜ TÍN HIỆU';let html;
- if(!state.started){html='<div class="kicker">CHÀO MỪNG</div><h2>Sẵn sàng khôi phục bản tin?</h2><p class="stage-desc">Bắt đầu để nghe lời giới thiệu và tương tác cùng các trạm lịch sử.</p><button class="btn" id="openStart">BẮT ĐẦU →</button>';$('#stageBody').innerHTML=html;$('#openStart').onclick=()=>overlay('welcome',true);return;}
- html=`<div class="kicker">TRẠM ${String(state.stage+1).padStart(2,'0')} · ${d.date}</div><h2>${escapeHtml(d.title)}</h2><p class="stage-desc">${escapeHtml(d.prompt)}</p>`;
- if(state.done.has(state.stage)){html+=`<div class="feedback"><b>✓ ĐÃ XÁC MINH LỊCH SỬ</b><p style="margin:7px 0 0">${escapeHtml(d.fact)}</p></div><div class="actions"><button class="btn alt" id="replayVoice">♫ Nghe lại đoạn kể</button><button class="btn" id="nextStage">${state.stage===6?'XEM BẢN TIN CUỐI →':'TRẠM TIẾP THEO →'}</button></div>`;}else{html+=taskHtml();if(state.msg)html+=`<div class="feedback ${state.msg.startsWith('✕')?'error':''}">${escapeHtml(state.msg)}</div>`;html+='<div class="actions"><button class="btn alt" id="hintBtn" '+(state.hinted?'disabled':'')+'>💡 GỢI Ý (−30 ĐIỂM)</button><button class="btn alt" id="repeatIntro">♫ NGHE HƯỚNG DẪN</button></div>';}
- $('#stageBody').innerHTML=html;wire();}
-function taskHtml(){if(state.stage===0)return `<div class="prompt">Chọn điểm A, B hoặc C trên bản đồ Tây Bắc cách điệu (không theo tỉ lệ).</div><div class="map"><svg viewBox="0 0 680 344" role="img" aria-label="Sơ đồ minh họa Tây Bắc Việt Nam với ba vị trí A B C"><defs><pattern id="mapgrid" width="27" height="27" patternUnits="userSpaceOnUse"><path d="M0 27V0H27" fill="none" stroke="#998e68" stroke-width=".6" opacity=".55"/></pattern></defs><rect width="680" height="344" fill="#d1c49a"/><rect width="680" height="344" fill="url(#mapgrid)"/><path d="M0 210Q120 120 220 200T430 230T680 150M95 0Q175 90 140 180T240 344M440 0Q340 95 415 175T490 344" fill="none" stroke="#b2a47d" stroke-width="23" opacity=".7"/><path d="M325 0Q290 85 329 140T320 290" fill="none" stroke="#638b95" stroke-width="5" opacity=".7"/><text x="25" y="39" fill="#5a5138" font-weight="bold" font-size="21">TÂY BẮC VIỆT NAM</text><text x="26" y="60" fill="#7b7050" font-size="11">SƠ ĐỒ MINH HỌA — KHÔNG THEO TỈ LỆ</text><text x="30" y="300" fill="#887e5c" font-size="32">LÀO</text><text x="440" y="297" fill="#81775a" font-size="18">ĐỒNG BẰNG</text><g class="map-point" data-map="0" tabindex="0" role="button" aria-label="Điểm A" transform="translate(520,117)"><circle r="25"/><text y="6">A</text></g><g class="map-point" data-map="1" tabindex="0" role="button" aria-label="Điểm B" transform="translate(173,187)"><circle r="25"/><text y="6">B</text></g><g class="map-point" data-map="2" tabindex="0" role="button" aria-label="Điểm C" transform="translate(409,253)"><circle r="25"/><text y="6">C</text></g></svg></div>`;
- if(state.stage===1)return `<div class="prompt">Ngày 26/1/1954, phương châm tác chiến mới là gì?</div><div class="cards"><button class="decision" data-decision="0"><strong>Đánh nhanh, giải quyết nhanh</strong><small>Tiến công trong thời gian ngắn</small></button><button class="decision" data-decision="1"><strong>Đánh chắc, tiến chắc</strong><small>Chuẩn bị kỹ, tiến công từng bước</small></button></div>`;
- if(state.stage===2){const l=[['d','Dân công hỏa tuyến'],['b','Xe đạp thồ'],['p','Bộ đội kéo pháo']],r=[['p','Đưa pháo vào trận địa qua địa hình hiểm trở'],['d','Huy động sức người tham gia vận chuyển và tiếp tế'],['b','Chở lương thực, đạn dược ra mặt trận']];return `<div class="prompt">Ghép một mục ở cột trái với vai trò tương ứng ở cột phải.</div><div class="pairs"><div class="paircol">${l.map(([id,t])=>`<button class="pair ${state.selectedLeft===id?'sel':''} ${state.pairs.includes(id)?'done':''}" data-left="${id}" ${state.pairs.includes(id)?'disabled':''}>${t}</button>`).join('')}</div><div class="paircol">${r.map(([id,t])=>`<button class="pair ${state.pairs.includes(id)?'done':''}" data-right="${id}" ${state.pairs.includes(id)?'disabled':''}>${t}</button>`).join('')}</div></div><p class="stage-desc" style="margin-top:12px">Đã ghép đúng ${state.pairs.length}/3 cặp.</p>`;}
- if(state.stage===3){let e=[['b','15/3/1954','Tiến công Độc Lập'],['c','17/3/1954','Bản Kéo đầu hàng'],['a','13/3/1954','Trận Him Lam mở màn']];return `<div class="prompt">Chọn sự kiện từ sớm đến muộn để tạo dòng thời gian đúng.</div><div class="selected">${state.order.length?state.order.map((v,i)=>`<button class="chip" data-remove="${i}">${i+1}. ${escapeHtml({a:'Him Lam',b:'Độc Lập',c:'Bản Kéo'}[v])} ×</button>`).join(''):'Chưa chọn sự kiện...'}</div>${e.map(([id,date,label])=>`<div class="event"><span><b>${date}</b><br>${label}</span><button class="btn alt light" data-order="${id}" ${state.order.includes(id)?'disabled':''}>+ CHỌN</button></div>`).join('')}<button class="btn" id="checkOrder" ${state.order.length!==3?'disabled':''}>KIỂM TRA THỨ TỰ</button>`;}
- if(state.stage===4){const w=state.wave, dates=['13–17/3/1954','30/3–30/4/1954','1–7/5/1954'],opts=[['Phá vỡ phòng tuyến phía bắc','Tiến tới tổng công kích','Đánh dấu kết thúc chiến tranh năm 1975'],['Tiến công cứ điểm phía đông và siết chặt vòng vây','Mở màn tại Him Lam','Tổng công kích và kết thúc'],['Tổng công kích và giành chiến thắng','Thay đổi phương châm tác chiến','Chỉ tập trung vào kéo pháo']];return `<div class="prompt">Xác minh nội dung đúng của từng đợt tiến công.</div><div class="waves">${[0,1,2].map(i=>`<button class="wavebtn ${w===i?'sel':''} ${state.waveCorrect[i]?'done':''}" data-wave="${i}">ĐỢT ${i+1}${state.waveCorrect[i]?' ✓':''}</button>`).join('')}</div><div class="waveinfo"><small>MỐC THỜI GIAN</small><br><strong>${dates[w]}</strong></div><div class="options">${opts[w].map((v,i)=>`<button class="option" data-waveanswer="${i}"><span class="letter">${'ABC'[i]}</span>${v}</button>`).join('')}</div>`;}
- if(state.stage===5){const arr=[['Tối 6/5','Điều gì xảy ra tại đồi A1?',['Kích nổ khối bộc phá','Ký Hiệp định Genève']],['Ngày 7/5','Diễn biến tại đồi A1?',['Quân Pháp phản công thắng lợi','Quân ta làm chủ đồi A1']],['Chiều 7/5','Kết quả tại sở chỉ huy tập đoàn cứ điểm?',['Bộ chỉ huy quân Pháp đầu hàng','Chiến dịch mới bắt đầu']]];return `<div class="prompt">Chọn nội dung đúng cho cả ba tín hiệu lịch sử.</div>${arr.map((x,i)=>`<div class="signal"><small>TÍN HIỆU ${i+1} · ${x[0]}</small><h4>${x[1]}</h4><div>${x[2].map((t,j)=>`<button class="${state.signals[i]===j?'sel':''}" data-signal="${i}:${j}">${t}</button>`).join('')}</div></div>`).join('')}<button class="btn" id="checkSignals" ${Object.keys(state.signals).length!==3?'disabled':''}>KIỂM TRA BA TÍN HIỆU</button>`;}
- const claims=['Chiến dịch Điện Biên Phủ kéo dài 56 ngày đêm.','Chiến thắng góp phần tạo điều kiện ký Hiệp định Genève năm 1954.','Việt Nam thống nhất ngay lập tức trong tháng 5 năm 1954.','Chiến thắng cổ vũ các phong trào giải phóng dân tộc.','Chiến dịch Điện Biên Phủ chỉ diễn ra đúng một ngày.'];return `<div class="prompt">Chọn cả ba nhận định chính xác.</div>${claims.map((t,i)=>`<label class="check"><input class="verify" type="checkbox" value="${i}" ${state.verify.includes(i)?'checked':''}><span>${t}</span></label>`).join('')}<button class="btn" id="checkVerify">XÁC NHẬN NỘI DUNG BẢN TIN</button>`;
-}
-function fail(msg){state.errors++;state.misses++;state.msg='✕ CHƯA CHÍNH XÁC. '+msg;render();voiceSay('Chưa chính xác. Hãy kiểm tra lại sự kiện và thử lần nữa.','Phản hồi');}
-function win(){if(state.done.has(state.stage))return;let score=Math.max(65,200-25*state.misses-(state.hinted?30:0));state.done.add(state.stage);state.score+=score;state.msg='';const current=state.stage;render();voiceSay(`Chính xác! ${data[current].fact}`,'Khôi phục thành công');}
-function goNext(){voiceStop();if(state.done.size===7&&state.stage===6){final();return;}let n=state.stage+1;while(n<7&&state.done.has(n))n++;if(n>=7){final();return;}state.stage=n;state.hinted=false;state.misses=0;state.msg='';state.pairs=[];state.order=[];state.wave=0;state.waveCorrect={};state.signals={};state.verify=[];state.selectedLeft=null;render();speakRound();}
-function wire(){if(state.done.has(state.stage)){$('#replayVoice').onclick=()=>voiceSay(data[state.stage].voice,'Trạm '+(state.stage+1));$('#nextStage').onclick=goNext;return;}
- $('#repeatIntro').onclick=speakRound;$('#hintBtn').onclick=()=>{if(state.hinted)return;state.hinted=true;state.hints++;state.msg=['Điểm ở phía Tây bản đồ, gần chữ Lào.','Phương châm mới ưu tiên sự chắc thắng.','Nối sức người với dân công, phương tiện chở hàng với xe đạp và pháo với kéo pháo.','Him Lam, Độc Lập rồi Bản Kéo.','Đợt một phá phòng tuyến phía bắc; đợt hai siết vòng vây; đợt ba tổng công kích.','Tối 6/5 khối bộc phá, ngày 7/5 làm chủ A1 và chiếm sở chỉ huy.','Loại nhận định nói chiến dịch chỉ một ngày hoặc Việt Nam thống nhất ngay trong tháng 5/1954.'][state.stage];render();voiceSay(state.msg,'Gợi ý lịch sử');};
- if(state.stage===0)$$('[data-map]').forEach(el=>{function click(){+el.dataset.map===1?win():fail('Điện Biên Phủ nằm ở vùng Tây Bắc, gần biên giới Lào.');}el.onclick=click;el.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();click();}}});
- if(state.stage===1)$$('[data-decision]').forEach(el=>el.onclick=()=>+el.dataset.decision===1?win():fail('Phương án này là phương châm ban đầu.'));
- if(state.stage===2){$$('[data-left]').forEach(el=>el.onclick=()=>{state.selectedLeft=el.dataset.left;render()});$$('[data-right]').forEach(el=>el.onclick=()=>{if(!state.selectedLeft){state.msg='Chọn một mục bên trái trước.';render();return;}if(el.dataset.right!==state.selectedLeft){fail('Hai mục chưa khớp.');return;}state.pairs.push(state.selectedLeft);state.selectedLeft=null;if(state.pairs.length===3)win();else render();});}
- if(state.stage===3){$$('[data-order]').forEach(el=>el.onclick=()=>{state.order.push(el.dataset.order);render()});$$('[data-remove]').forEach(el=>el.onclick=()=>{state.order.splice(+el.dataset.remove,1);render()});$('#checkOrder').onclick=()=>state.order.join('')==='abc'?win():fail('Hãy so sánh mốc 13, 15 và 17/3.');}
- if(state.stage===4){$$('[data-wave]').forEach(el=>el.onclick=()=>{state.wave=+el.dataset.wave;render()});$$('[data-waveanswer]').forEach(el=>el.onclick=()=>{if(+el.dataset.waveanswer===0){state.waveCorrect[state.wave]=true;if(Object.keys(state.waveCorrect).length===3){win();return}state.wave=[0,1,2].find(i=>!state.waveCorrect[i]);render()}else fail('Nội dung này không đúng với đợt tiến công đang chọn.');});}
- if(state.stage===5){$$('[data-signal]').forEach(el=>el.onclick=()=>{const [i,j]=el.dataset.signal.split(':').map(Number);state.signals[i]=j;render()});$('#checkSignals').onclick=()=>state.signals[0]===0&&state.signals[1]===1&&state.signals[2]===0?win():fail('Đối chiếu lại đồi A1 và sở chỉ huy.');}
- if(state.stage===6){$$('.verify').forEach(el=>el.onchange=()=>{state.verify=$$('.verify:checked').map(x=>+x.value)});$('#checkVerify').onclick=()=>state.verify.slice().sort().join(',')==='0,1,3'?win():fail('Chỉ chọn ba nhận định có cơ sở lịch sử.');}
-}
-function fullScript(){return `SÓNG LỊCH SỬ 1954 – BẢN TIN ĐẶC BIỆT\nĐội thực hiện: ${state.team}\n\n${INTRO}\n\n${data.map((x,i)=>'TRẠM '+(i+1)+': '+x.title.toUpperCase()+'\n'+x.voice).join('\n\n')}\n\n${OUTRO}\n\nTài liệu tham khảo: Báo Nhân Dân, Bảo tàng Chiến thắng Điện Biên Phủ, Báo Chính phủ.`;}
-function final(){voiceStop();$('#results').innerHTML=`<div><b>${state.score}</b><small>ĐIỂM TỔNG KẾT</small></div><div><b>7/7</b><small>TRẠM MỞ KHÓA</small></div><div><b>${state.errors}</b><small>LẦN TRẢ LỜI SAI</small></div>`;$('#report').textContent=fullScript();overlay('finalModal',true);voiceSay('Chúc mừng! Bảy trạm phát thanh đã được khôi phục. Bạn có thể nghe toàn bộ bản tin chiến thắng.','Hoàn thành nhiệm vụ');}
-function restart(){voiceStop();overlay('finalModal',false);state.started=false;state.stage=0;state.done=new Set();state.score=0;state.errors=0;state.hints=0;state.hinted=false;state.misses=0;state.msg='';state.selectedLeft=null;state.pairs=[];state.order=[];state.wave=0;state.waveCorrect={};state.signals={};state.verify=[];render();overlay('welcome',true);}
-function init(){boot();$('#startBtn').onclick=()=>{state.team=$('#teamInput').value.trim().slice(0,40)||'Đội Lịch Sử';state.started=true;overlay('welcome',false);render();voiceSay(INTRO+' '+data[0].prompt,'Giới thiệu hành trình');};$('#voiceBtn').onclick=()=>{narrator.enabled=!narrator.enabled;$('#voiceBtn').innerHTML=narrator.enabled?'🔊 <span>Giọng kể: Bật</span>':'🔇 <span>Giọng kể: Tắt</span>';if(!narrator.enabled)voiceStop();else voiceSay('Chế độ kể chuyện bằng giọng nói đã bật.','Phát thanh viên');};$('#narratorStop').onclick=voiceStop;$('#videoBtn').onclick=$('#watchIntro').onclick=()=>{voiceStop();overlay('videoModal',true)};$('#videoClose').onclick=()=>{const v=$('#video');v.pause();videoNarrator(false);overlay('videoModal',false)};$('#video').addEventListener('play',()=>videoNarrator(true));['pause','ended','emptied'].forEach(e=>$('#video').addEventListener(e,()=>videoNarrator(false)));$('#playFull').onclick=()=>voiceSay(INTRO+' '+data.map(x=>x.voice).join(' ')+' '+OUTRO,'Bản tin Điện Biên Phủ 1954');$('#stopFull').onclick=voiceStop;$('#downloadScript').onclick=()=>{const blob=new Blob([fullScript()],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='Ban_tin_Song_Lich_Su_1954.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),500)};$('#restart').onclick=restart;$('#sourcesBtn').onclick=()=>{voiceStop();overlay('sourcesModal',true)};$('#sourcesClose').onclick=()=>overlay('sourcesModal',false);document.addEventListener('visibilitychange',()=>{if(document.hidden)voiceStop()});}
-// Save state before reload during software update.
-window.saveVoiceGame=()=>{if(!state.started)return;try{sessionStorage.setItem('SLS1954_resume_v14',JSON.stringify({t:Date.now(),team:state.team,stage:state.stage,done:[...state.done],score:state.score,errors:state.errors,hints:state.hints,misses:state.misses,hinted:state.hinted,pairs:state.pairs,order:state.order,wave:state.wave,waveCorrect:state.waveCorrect,signals:state.signals,verify:state.verify,selectedLeft:state.selectedLeft}))}catch(e){}};
-function restore(){try{const s=JSON.parse(sessionStorage.getItem('SLS1954_resume_v14')||'null');sessionStorage.removeItem('SLS1954_resume_v14');if(!s||Date.now()-s.t>10*60*1000)return;state.started=true;state.team=s.team;state.stage=s.stage;state.done=new Set(s.done);state.score=s.score;state.errors=s.errors;state.hints=s.hints;state.misses=s.misses;state.hinted=s.hinted;state.pairs=s.pairs;state.order=s.order;state.wave=s.wave;state.waveCorrect=s.waveCorrect;state.signals=s.signals;state.verify=s.verify;state.selectedLeft=s.selectedLeft;overlay('welcome',false);render()}catch(e){}}
-// Original static HTML captured before the game changes DOM. Update watcher hashes this.
-window.SLS_ORIGINAL_HTML=document.documentElement.outerHTML;
-init();restore();
-</script>
-<script src="version-control.js" defer></script>
-</body></html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#10231c">
+    <meta name="game-id" content="song-lich-su-1954">
+    <meta name="game-version" content="1.4.0">
+    <title>SÓNG LỊCH SỬ 1954 · 7 trạm phát thanh</title>
+    <style>
+        :root {
+            --bg: #0b1916;
+            --surface: #142c23;
+            --surface2: #1b362a;
+            --outline: #4c6b53;
+            --ivory: #f6ecd9;
+            --gold: #edc77c;
+            --mute: #b4c5b4;
+            --red: #dc725f;
+            --green: #92cc98
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            background: radial-gradient(ellipse at 15% -8%, #385139 0, transparent 37%), radial-gradient(ellipse at 100% 80%, #333520, transparent 40%), var(--bg);
+            color: var(--ivory);
+            font: 15px/1.65 system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+            min-height: 100vh
+        }
+
+        button,
+        input {
+            font: inherit
+        }
+
+        button {
+            cursor: pointer
+        }
+
+        button:disabled {
+            cursor: not-allowed;
+            opacity: .5
+        }
+
+        button:focus-visible,
+        a:focus-visible {
+            outline: 3px solid var(--gold);
+            outline-offset: 3px
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin-top: 0
+        }
+
+        a {
+            color: var(--gold)
+        }
+
+        .wrap {
+            max-width: 1240px;
+            margin: auto;
+            padding: 0 22px
+        }
+
+        header {
+            background: #0e1d18eb;
+            border-bottom: 1px solid #6d80623a;
+            position: sticky;
+            top: 0;
+            z-index: 25;
+            backdrop-filter: blur(15px)
+        }
+
+        header .wrap {
+            min-height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px
+        }
+
+        .logo {
+            display: flex;
+            gap: 12px;
+            align-items: center
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            border: 1px solid #a59165;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            color: var(--gold);
+            font-size: 23px
+        }
+
+        .logo b {
+            font-size: 13px;
+            letter-spacing: 1.6px
+        }
+
+        .logo small {
+            display: block;
+            color: var(--mute);
+            font-size: 10px;
+            letter-spacing: 1.3px
+        }
+
+        .tools {
+            display: flex;
+            gap: 7px
+        }
+
+        .tool {
+            background: #263b30;
+            border: 1px solid #60745d;
+            color: #e5e9d8;
+            border-radius: 10px;
+            padding: 9px 12px;
+            font-size: 12px;
+            font-weight: 750
+        }
+
+        .tool:hover {
+            background: #3c4c39
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.4fr .6fr;
+            align-items: center;
+            gap: 25px;
+            padding: 40px 0 35px
+        }
+
+        .eyebrow {
+            color: var(--gold);
+            font-weight: 900;
+            letter-spacing: 2px;
+            font-size: 12px
+        }
+
+        .hero h1 {
+            font-size: clamp(53px, 7vw, 90px);
+            line-height: .99;
+            letter-spacing: -2px;
+            margin: 15px 0 18px;
+            font-weight: 1000
+        }
+
+        .hero h1 span {
+            color: var(--gold)
+        }
+
+        .hero p {
+            color: #c5d2c3;
+            max-width: 620px;
+            font-size: 15px
+        }
+
+        .pillset {
+            display: flex;
+            gap: 9px;
+            flex-wrap: wrap;
+            margin-top: 20px
+        }
+
+        .pillset span {
+            padding: 7px 11px;
+            border: 1px solid #57725b;
+            border-radius: 7px;
+            font-size: 11px;
+            color: #e2e4d7
+        }
+
+        .radio-art {
+            background: repeating-linear-gradient(90deg, #29271c 0px, #332d20 7px, #22271e 11px);
+            border: 2px solid #a98b58;
+            padding: 16px;
+            border-radius: 20px;
+            box-shadow: 0 28px 60px #0006;
+            transform: rotate(1deg)
+        }
+
+        .radio-inner {
+            background: #1d3027;
+            border: 1px solid #8a8060;
+            border-radius: 9px;
+            padding: 17px
+        }
+
+        .radio-inner small {
+            color: var(--gold);
+            font-weight: 800;
+            letter-spacing: 2px
+        }
+
+        .freq {
+            border: 1px solid #8e7755;
+            background: #0e211b;
+            color: #e4c990;
+            font-size: 12px;
+            padding: 19px 12px;
+            margin: 14px 0;
+            display: flex;
+            justify-content: space-around;
+            position: relative
+        }
+
+        .freq:after {
+            content: "";
+            position: absolute;
+            height: 53px;
+            top: 0;
+            left: 52%;
+            width: 3px;
+            background: #e7b96a;
+            box-shadow: 0 0 11px #e5b265
+        }
+
+        .bars {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            align-items: center;
+            height: 42px;
+            background: #10241b;
+            padding: 10px
+        }
+
+        .bars i {
+            height: var(--h);
+            width: 4px;
+            border-radius: 4px;
+            background: #f1cd7b;
+            animation: wave 1.2s infinite alternate;
+            animation-delay: var(--d)
+        }
+
+        @keyframes wave {
+            to {
+                height: 5px
+            }
+        }
+
+        .radio-bottom {
+            font-size: 11px;
+            display: flex;
+            justify-content: space-between;
+            color: #bdc9b9;
+            margin-top: 15px
+        }
+
+        .sectionhead {
+            font-weight: 900;
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: #e9e5cf;
+            margin: 4px 0 13px
+        }
+
+        .stations {
+            display: grid;
+            grid-template-columns: repeat(7, minmax(0, 1fr));
+            gap: 9px;
+            margin-bottom: 17px
+        }
+
+        .station {
+            background: #172d24;
+            border: 1px solid #4a6a50;
+            border-radius: 9px;
+            min-height: 83px;
+            padding: 10px;
+            text-align: left;
+            color: var(--ivory);
+            position: relative
+        }
+
+        .station span {
+            display: block;
+            font-size: 10px;
+            color: #dfbd79;
+            letter-spacing: 1.2px;
+            font-weight: 900
+        }
+
+        .station strong {
+            display: block;
+            font-size: 11px;
+            margin-top: 9px;
+            line-height: 1.3
+        }
+
+        .station.active {
+            border-color: #e9bb68;
+            background: #3b452d
+        }
+
+        .station.done {
+            border-color: #7caa7f
+        }
+
+        .station.done:after {
+            content: '✓';
+            position: absolute;
+            right: 7px;
+            top: 4px;
+            color: var(--green)
+        }
+
+        .station.locked {
+            opacity: .5
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.5fr) minmax(290px, .75fr);
+            gap: 17px;
+            margin-bottom: 39px
+        }
+
+        .panel {
+            background: linear-gradient(145deg, #173026, #11241c);
+            border: 1px solid #4b6752;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 13px 40px #0004
+        }
+
+        .panel-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            border-bottom: 1px solid #4d6b54;
+            padding: 16px 22px;
+            align-items: center
+        }
+
+        .status {
+            color: var(--gold);
+            font-size: 11px;
+            font-weight: 850;
+            letter-spacing: 1px
+        }
+
+        .score {
+            font-size: 13px;
+            color: #e8d5a7;
+            font-weight: 900
+        }
+
+        .stage-body {
+            padding: 26px;
+            min-height: 500px
+        }
+
+        .kicker {
+            font-size: 11px;
+            color: var(--gold);
+            font-weight: 900;
+            letter-spacing: 1.3px
+        }
+
+        .stage-body h2 {
+            font-size: 30px;
+            line-height: 1.28;
+            margin: 10px 0
+        }
+
+        .stage-desc {
+            color: var(--mute);
+            font-size: 14px;
+            margin-bottom: 20px
+        }
+
+        .prompt {
+            background: #0f251d;
+            border: 1px solid #617052;
+            border-left: 4px solid var(--gold);
+            border-radius: 8px;
+            padding: 13px 15px;
+            margin: 19px 0;
+            color: #eadfc4;
+            font-size: 14px;
+            font-weight: 650
+        }
+
+        .btn {
+            background: var(--gold);
+            border: 1px solid #d4a766;
+            color: #17231c;
+            border-radius: 9px;
+            padding: 11px 16px;
+            font-weight: 850;
+            font-size: 12px
+        }
+
+        .btn:hover:not(:disabled) {
+            filter: brightness(1.09)
+        }
+
+        .btn.alt {
+            background: #243f30;
+            color: var(--ivory);
+            border-color: #6a875f
+        }
+
+        .btn.light {
+            padding: 8px 11px;
+            font-size: 11px
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 8px;
+            margin-top: 22px
+        }
+
+        .options {
+            display: grid;
+            gap: 10px
+        }
+
+        .option {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            text-align: left;
+            width: 100%;
+            padding: 13px 15px;
+            background: #223d30;
+            border: 1px solid #5b785e;
+            border-radius: 9px;
+            color: #f6f0df
+        }
+
+        .option:hover:not(:disabled) {
+            border-color: #dec18a;
+            background: #304a36
+        }
+
+        .letter {
+            display: grid;
+            place-items: center;
+            width: 32px;
+            height: 32px;
+            flex-shrink: 0;
+            border-radius: 7px;
+            border: 1px solid #a8905c;
+            color: var(--gold);
+            font-weight: 800
+        }
+
+        .feedback {
+            border: 1px solid #548861;
+            background: #193d2a;
+            padding: 15px;
+            border-radius: 9px;
+            margin: 15px 0;
+            font-size: 13px;
+            color: #e2f0d8
+        }
+
+        .feedback.error {
+            background: #482c27;
+            border-color: #a76251
+        }
+
+        .aside {
+            display: grid;
+            align-content: start;
+            gap: 16px
+        }
+
+        .aside .pad {
+            padding: 19px
+        }
+
+        .aside h3 {
+            font-size: 14px;
+            margin-bottom: 12px
+        }
+
+        .onair {
+            background: #4c2e24;
+            border: 1px solid #b57661;
+            color: #f5ccb4;
+            padding: 9px 12px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            font-weight: 900
+        }
+
+        .dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #e7725c;
+            box-shadow: 0 0 0 4px #e7725c25;
+            margin-right: 8px
+        }
+
+        .tapes {
+            display: flex;
+            gap: 6px;
+            margin: 19px 0
+        }
+
+        .tapes i {
+            height: 8px;
+            border-radius: 5px;
+            flex: 1;
+            background: #42614a
+        }
+
+        .tapes i.done {
+            background: var(--gold);
+            box-shadow: 0 0 12px #eac66b5a
+        }
+
+        .line {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--mute);
+            margin-top: 11px;
+            gap: 10px
+        }
+
+        .line b {
+            color: #f5e9cc
+        }
+
+        .timeline {
+            border-left: 1px solid #617456;
+            margin-left: 7px;
+            padding-left: 17px
+        }
+
+        .timeline p {
+            position: relative;
+            color: #b9cbb7;
+            font-size: 12px;
+            margin-bottom: 16px
+        }
+
+        .timeline p:before {
+            content: "";
+            position: absolute;
+            left: -23px;
+            top: 7px;
+            background: var(--gold);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%
+        }
+
+        .timeline b {
+            display: block;
+            color: var(--gold);
+            font-size: 11px
+        }
+
+        .foot {
+            border-top: 1px solid #55715a33;
+            padding: 22px 0 30px;
+            color: #a5b5a4;
+            font-size: 11px
+        }
+
+        .map svg {
+            display: block;
+            width: 100%;
+            height: auto;
+            border: 5px solid #756a49;
+            border-radius: 9px;
+            background: #d2c49b
+        }
+
+        .map-point {
+            cursor: pointer
+        }
+
+        .map-point circle {
+            fill: #2e483a;
+            stroke: #fff0be;
+            stroke-width: 3;
+            transition: stroke .2s, filter .2s
+        }
+
+        .map-point:hover circle,
+        .map-point:focus-visible circle {
+            stroke: #fff;
+            filter: drop-shadow(0 0 7px #e8ac54)
+        }
+
+        .map-point text {
+            font-size: 17px;
+            fill: white;
+            text-anchor: middle;
+            pointer-events: none;
+            font-weight: 800
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px
+        }
+
+        .decision {
+            border: 1px solid #678468;
+            background: #203a30;
+            color: var(--ivory);
+            border-radius: 10px;
+            padding: 16px;
+            text-align: left
+        }
+
+        .decision strong {
+            display: block;
+            margin-bottom: 7px;
+            font-size: 17px
+        }
+
+        .decision small {
+            color: var(--mute);
+            font-size: 12px
+        }
+
+        .paircol {
+            display: grid;
+            gap: 9px
+        }
+
+        .pairs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px
+        }
+
+        .pair {
+            border: 1px solid #688365;
+            color: #ede9d8;
+            background: #254133;
+            border-radius: 9px;
+            padding: 13px;
+            text-align: left;
+            min-height: 70px;
+            font-size: 13px
+        }
+
+        .pair.sel {
+            border-color: var(--gold);
+            background: #63562d
+        }
+
+        .pair.done {
+            border-color: var(--green);
+            background: #24553b
+        }
+
+        .selected {
+            border: 1px dashed #bca16d;
+            border-radius: 8px;
+            min-height: 64px;
+            padding: 12px;
+            margin: 12px 0;
+            display: flex;
+            gap: 7px;
+            flex-wrap: wrap;
+            color: var(--mute);
+            font-size: 12px
+        }
+
+        .chip {
+            background: #58613f;
+            border: 1px solid #beaa6d;
+            border-radius: 7px;
+            color: white;
+            padding: 8px
+        }
+
+        .event {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            background: #223a2e;
+            border: 1px solid #557656;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 8px 0;
+            font-size: 13px
+        }
+
+        .event b {
+            color: var(--gold)
+        }
+
+        .waves {
+            display: flex;
+            gap: 9px;
+            margin-bottom: 12px
+        }
+
+        .wavebtn {
+            flex: 1;
+            border: 1px solid #567556;
+            background: #254334;
+            color: white;
+            border-radius: 7px;
+            padding: 9px;
+            font-weight: 800
+        }
+
+        .wavebtn.sel {
+            border-color: var(--gold);
+            background: #534b2c
+        }
+
+        .wavebtn.done {
+            border-color: var(--green)
+        }
+
+        .waveinfo {
+            background: #233c30;
+            padding: 15px;
+            border: 1px solid #61715a;
+            border-radius: 8px;
+            margin-bottom: 12px
+        }
+
+        .waveinfo strong {
+            font-size: 23px;
+            color: var(--gold)
+        }
+
+        .signal {
+            border: 1px solid #668163;
+            border-radius: 9px;
+            padding: 13px;
+            margin: 10px 0;
+            background: #20392d
+        }
+
+        .signal small {
+            color: var(--gold);
+            font-weight: 800
+        }
+
+        .signal h4 {
+            margin: 5px 0 11px
+        }
+
+        .signal div {
+            display: flex;
+            gap: 9px
+        }
+
+        .signal button {
+            flex: 1;
+            border: 1px solid #557a5b;
+            background: #2b4736;
+            color: white;
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 13px
+        }
+
+        .signal button.sel {
+            background: #66562b;
+            border-color: var(--gold)
+        }
+
+        .check {
+            display: flex;
+            align-items: start;
+            gap: 10px;
+            padding: 13px;
+            border: 1px solid #688065;
+            border-radius: 9px;
+            background: #234133;
+            margin: 9px 0;
+            font-size: 14px
+        }
+
+        .check input {
+            margin: 4px 0;
+            accent-color: var(--gold);
+            width: 16px;
+            height: 16px
+        }
+
+        .hint {
+            font-size: 12px;
+            color: var(--gold);
+            padding: 10px 13px;
+            border: 1px solid #a68e5c;
+            background: #4d472b;
+            border-radius: 8px;
+            margin-top: 10px
+        }
+
+        /* Narrator shown whenever voice actually speaks */
+        .narrator {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: min(525px, calc(100vw - 24px));
+            z-index: 95;
+            display: none;
+            background: linear-gradient(145deg, #1c3329, #10231d);
+            border: 1px solid #c3a16b;
+            border-radius: 19px;
+            overflow: hidden;
+            box-shadow: 0 22px 90px #000b
+        }
+
+        .narrator.show {
+            display: block;
+            animation: appear .23s
+        }
+
+        .narrator-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            background: #294034;
+            padding: 10px 14px;
+            border-bottom: 1px solid #66856a
+        }
+
+        .narrator-head span {
+            color: var(--gold);
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            font-weight: 900
+        }
+
+        .narrator-head button {
+            border: 1px solid #718365;
+            border-radius: 7px;
+            background: #183026;
+            color: white;
+            padding: 5px 10px;
+            font-size: 13px
+        }
+
+        .narrator-main {
+            display: grid;
+            grid-template-columns: 155px minmax(0, 1fr);
+            padding: 12px;
+            gap: 13px
+        }
+
+        .narrator-face {
+            background: #f8d0a6;
+            border: 1px solid #c2a270;
+            border-radius: 12px;
+            overflow: hidden;
+            min-height: 153px
+        }
+
+        .narrator-face img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .narrator-copy {
+            min-width: 0;
+            display: flex;
+            flex-direction: column
+        }
+
+        .narrator-copy small {
+            font-weight: 800;
+            font-size: 10px;
+            letter-spacing: 1px;
+            color: var(--gold)
+        }
+
+        .narrator-copy b {
+            font-size: 17px;
+            margin: 5px 0
+        }
+
+        .narrator-copy p {
+            color: #e5e8da;
+            font-size: 13px;
+            line-height: 1.7;
+            margin: 0;
+            flex: 1;
+            overflow-wrap: anywhere
+        }
+
+        .progresslabel {
+            display: flex;
+            justify-content: space-between;
+            color: #c4d2c2;
+            font-size: 10px;
+            font-weight: 800;
+            margin-top: 9px
+        }
+
+        .progress {
+            height: 5px;
+            background: #52705b;
+            border-radius: 9px;
+            overflow: hidden;
+            margin-top: 6px
+        }
+
+        .progress span {
+            display: block;
+            width: 0;
+            height: 100%;
+            background: var(--gold);
+            transition: width .2s
+        }
+
+        .narrator-bottom {
+            background: #11281e;
+            color: #c9d4c1;
+            border-top: 1px solid #5f745c;
+            padding: 7px 13px;
+            font-size: 10px;
+            letter-spacing: .5px
+        }
+
+        .narrator-bottom .dot {
+            width: 6px;
+            height: 6px;
+            box-shadow: none;
+            animation: pulse 1s infinite
+        }
+
+        @keyframes pulse {
+            50% {
+                opacity: .2
+            }
+        }
+
+        @keyframes appear {
+            from {
+                transform: translateY(8px);
+                opacity: 0
+            }
+
+            to {
+                transform: none;
+                opacity: 1
+            }
+        }
+
+        .overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 80;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 18px;
+            background: #000b;
+            backdrop-filter: blur(7px)
+        }
+
+        .overlay.show {
+            display: flex
+        }
+
+        .dialog {
+            background: linear-gradient(145deg, #213c2d, #11271e);
+            border: 1px solid #af925e;
+            box-shadow: 0 25px 80px #000c;
+            border-radius: 17px;
+            padding: 26px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 90vh;
+            overflow: auto
+        }
+
+        .dialog h2 {
+            font-size: 32px;
+            color: #f4e8c4;
+            margin: 6px 0 12px
+        }
+
+        .dialog p {
+            color: #c3d3c0;
+            font-size: 13px
+        }
+
+        .dialog input[type=text] {
+            width: 100%;
+            padding: 12px 13px;
+            background: #0e261b;
+            border: 1px solid #8d916d;
+            border-radius: 9px;
+            color: white;
+            margin: 12px 0
+        }
+
+        .dialog label {
+            font-weight: 800;
+            font-size: 12px
+        }
+
+        .dialog .modal-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px
+        }
+
+        .dialog video {
+            width: 100%;
+            max-height: 60vh;
+            background: #000;
+            border-radius: 9px
+        }
+
+        .report {
+            white-space: pre-wrap;
+            background: #0f251b;
+            border: 1px solid #547055;
+            border-radius: 9px;
+            padding: 16px;
+            font-size: 12px;
+            line-height: 1.9;
+            max-height: 300px;
+            overflow: auto
+        }
+
+        .results {
+            display: flex;
+            gap: 10px;
+            margin: 14px 0
+        }
+
+        .results div {
+            flex: 1;
+            border: 1px solid #668463;
+            border-radius: 9px;
+            padding: 12px;
+            text-align: center
+        }
+
+        .results b {
+            display: block;
+            font-size: 27px;
+            color: var(--gold)
+        }
+
+        .results small {
+            font-size: 10px;
+            color: #c4d3c5
+        }
+
+        .updateDialog h2 {
+            font-size: 31px
+        }
+
+        #updateModal {
+            z-index: 110
+        }
+
+        .updateVersions {
+            border: 1px solid #798660;
+            background: #172f24;
+            padding: 11px;
+            border-radius: 8px;
+            color: var(--gold);
+            margin: 12px 0;
+            font-size: 12px
+        }
+
+        @media(max-width:900px) {
+            .hero {
+                grid-template-columns: 1fr
+            }
+
+            .radio-art {
+                max-width: 450px
+            }
+
+            .main-grid {
+                grid-template-columns: 1fr
+            }
+
+            .aside {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .stations {
+                grid-template-columns: repeat(7, 133px);
+                overflow-x: auto
+            }
+
+            .station {
+                min-width: 133px
+            }
+        }
+
+        @media(max-width:600px) {
+            .wrap {
+                padding: 0 13px
+            }
+
+            .logo small {
+                display: none
+            }
+
+            .logo b {
+                font-size: 11px
+            }
+
+            .tool span {
+                display: none
+            }
+
+            .hero h1 {
+                font-size: 52px
+            }
+
+            .hero {
+                padding: 24px 0
+            }
+
+            .aside {
+                grid-template-columns: 1fr
+            }
+
+            .stage-body {
+                padding: 17px
+            }
+
+            .stage-body h2 {
+                font-size: 25px
+            }
+
+            .cards {
+                grid-template-columns: 1fr
+            }
+
+            .narrator {
+                left: 10px;
+                right: 10px;
+                bottom: 10px;
+                width: auto
+            }
+
+            .narrator-main {
+                grid-template-columns: 116px 1fr;
+                gap: 9px;
+                padding: 9px
+            }
+
+            .narrator-face {
+                min-height: 120px
+            }
+
+            .narrator-copy b {
+                font-size: 14px
+            }
+
+            .narrator-copy p {
+                font-size: 11px;
+                line-height: 1.55
+            }
+
+            .narrator-head span {
+                font-size: 9px
+            }
+
+            .dialog {
+                padding: 20px
+            }
+
+            .dialog h2 {
+                font-size: 26px
+            }
+
+            .signal div {
+                flex-direction: column
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+
+            *,
+            *:before,
+            *:after {
+                animation: none !important;
+                transition: none !important
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="wrap">
+            <div class="logo">
+                <div class="logo-icon">◉</div>
+                <div><b>ĐÀI PHÁT THANH LỊCH SỬ</b><small>CHUYÊN ĐỀ ĐIỆN BIÊN PHỦ · 1954</small></div>
+            </div>
+            <div class="tools"><button class="tool" id="voiceBtn" title="Bật hoặc tắt giọng kể">🔊 <span>Giọng kể:
+                        Bật</span></button><button class="tool" id="checkUpdate" title="Kiểm tra bản mới">↻ <span>Cập
+                        nhật</span></button><button class="tool" id="sourcesBtn" title="Nguồn tư liệu">ⓘ <span>Tư
+                        liệu</span></button></div>
+        </div>
+    </header>
+    <main class="wrap">
+        <section class="hero">
+            <div>
+                <div class="eyebrow"><span class="dot"></span> CHƯƠNG TRÌNH PHÁT SÓNG ĐẶC BIỆT</div>
+                <h1>SÓNG LỊCH SỬ<br><span>1954</span></h1>
+                <p>56 ngày đêm Điện Biên Phủ qua bảy trạm phát thanh. Khôi phục những cột mốc lịch sử và nghe phát thanh
+                    viên hoạt hình kể lại sự kiện mỗi khi giọng đọc vang lên.</p>
+                <div class="pillset"><span>7 trạm tương tác</span><span>Nhân vật kể chuyện tự động</span><span>Bản tin
+                        cuối trò chơi</span></div>
+            </div>
+            <div class="radio-art">
+                <div class="radio-inner"><small>HISTORIA RADIO / 1954</small>
+                    <div class="freq">
+                        <span>1930</span><span>1945</span><span>1954</span><span>1975</span><span>1986</span></div>
+                    <div id="bars" class="bars"></div>
+                    <div class="radio-bottom"><span>● ON AIR</span><span>13.03 – 07.05</span></div>
+                </div>
+            </div>
+        </section>
+        <h3 class="sectionhead">◈ BẢY TRẠM KHÔI PHỤC BẢN TIN</h3>
+        <nav class="stations" id="stations"></nav>
+        <div class="main-grid">
+            <section class="panel">
+                <div class="panel-top"><span class="status" id="status">SẴN SÀNG PHÁT SÓNG</span><span class="score"
+                        id="score">0 ĐIỂM</span></div>
+                <div class="stage-body" id="stageBody"></div>
+            </section>
+            <aside class="aside">
+                <section class="panel">
+                    <div class="pad">
+                        <div class="onair"><span><i class="dot"></i> ĐANG KHÔI PHỤC</span><b id="airInfo">0 / 7</b>
+                        </div>
+                        <h3 style="margin:20px 0 8px">Các băng tín hiệu</h3>
+                        <div class="tapes" id="tapes"></div>
+                        <div class="line"><span>Đội tham gia</span><b id="teamInfo">—</b></div>
+                        <div class="line"><span>Trạm đã hoàn thành</span><b id="doneInfo">0/7</b></div>
+                        <p style="font-size:12px;color:#b1c5b0;margin:18px 0 12px">Mỗi trạm khôi phục một phần của bản
+                            tin. Nhân vật tự xuất hiện khi có giọng kể và ẩn khi dừng.</p><button class="btn alt"
+                            id="videoBtn">▶ Xem video minh họa</button>
+                    </div>
+                </section>
+                <section class="panel">
+                    <div class="pad">
+                        <h3>CÁC MỐC LỊCH SỬ</h3>
+                        <div class="timeline">
+                            <p><b>26/01/1954</b>Chuyển sang “đánh chắc, tiến chắc”.</p>
+                            <p><b>13/03/1954</b>Trận Him Lam mở màn.</p>
+                            <p><b>30/03/1954</b>Bắt đầu đợt tiến công thứ hai.</p>
+                            <p><b>01–07/05/1954</b>Đợt ba và tổng công kích.</p>
+                            <p><b>07/05/1954</b>Chiến thắng Điện Biên Phủ.</p>
+                        </div>
+                    </div>
+                </section>
+            </aside>
+        </div>
+    </main>
+    <footer class="wrap foot">SÓNG LỊCH SỬ 1954 · Trò chơi giáo dục được hỗ trợ xây dựng bằng AI · Bản đồ minh họa không
+        theo tỉ lệ</footer>
+    <!-- Global narrator: one panel shared by all voice sources -->
+    <div class="narrator" id="narrator" role="status" aria-live="polite">
+        <div class="narrator-head"><span><i class="dot"></i> PHÁT THANH VIÊN ĐANG KỂ CHUYỆN</span><button
+                id="narratorStop">■ DỪNG</button></div>
+        <div class="narrator-main">
+            <div class="narrator-face"><img id="narratorGif" src="nhan_vat_thuyet_trinh.gif"
+                    alt="Nhân vật hoạt hình đeo kính mặc vest đang thuyết minh"></div>
+            <div class="narrator-copy"><small>TRỰC TIẾP · 1954</small><b id="narratorTitle">Lời dẫn lịch sử</b>
+                <p id="narratorLine"></p>
+                <div class="progresslabel"><span>ĐANG KỂ CHUYỆN</span><span id="narratorCount">01 / 01</span></div>
+                <div class="progress"><span id="narratorProgress"></span></div>
+            </div>
+        </div>
+        <div class="narrator-bottom"><i class="dot"></i> TRUYỀN THANH LỊCH SỬ · ĐIỆN BIÊN PHỦ</div>
+    </div>
+    <div class="overlay show" id="welcome">
+        <div class="dialog">
+            <div class="eyebrow">KHỞI ĐỘNG ĐÀI PHÁT THANH</div>
+            <h2>Khôi phục Sóng Lịch Sử 1954</h2>
+            <p>Khám phá bảy câu chuyện của chiến dịch. Khi bắt đầu, nhân vật hoạt hình sẽ tự kể lời giới thiệu. Giọng
+                đọc có thể tắt bất cứ lúc nào.</p><label for="teamInput">Tên đội hoặc người chơi</label><input
+                id="teamInput" type="text" maxlength="40" value="Đội Lịch Sử" placeholder="Nhập tên đội">
+            <div class="modal-actions"><button class="btn" id="startBtn">BẮT ĐẦU PHÁT SÓNG →</button><button
+                    class="btn alt" id="watchIntro">▶ VIDEO MỞ ĐẦU</button></div>
+            <p style="font-size:11px">Website chơi được offline. Giọng tiếng Việt phụ thuộc vào trình duyệt và thiết bị;
+                GIF chỉ minh họa chuyển động, không đồng bộ từng âm tiết.</p>
+        </div>
+    </div>
+    <div class="overlay" id="videoModal">
+        <div class="dialog">
+            <h2>Video hoạt hình minh họa</h2>
+            <p>Video do nhóm cung cấp; đây là hình minh họa sáng tạo, không phải ảnh tư liệu gốc.</p><video id="video"
+                controls preload="metadata" playsinline>
+                <source src="video-minh-hoa.mp4" type="video/mp4">
+            </video>
+            <div class="modal-actions"><button class="btn alt" id="videoClose">ĐÓNG VIDEO</button></div>
+        </div>
+    </div>
+    <div class="overlay" id="finalModal">
+        <div class="dialog">
+            <div class="eyebrow">07 / 07 TRẠM KHÔI PHỤC</div>
+            <h2>Bản tin chiến thắng đã hoàn thành</h2>
+            <div class="results" id="results"></div>
+            <div class="report" id="report"></div>
+            <div class="modal-actions"><button class="btn" id="playFull">▶ PHÁT TOÀN BỘ BẢN TIN</button><button
+                    class="btn alt" id="stopFull">■ DỪNG VOICE</button><button class="btn alt" id="downloadScript">↓ TẢI
+                    LỜI DẪN</button><button class="btn alt" id="restart">↻ CHƠI LẠI</button></div>
+            <p style="font-size:11px">Khi phát bản tin, nhân vật kể chuyện tự xuất hiện. Nhấn Dừng để tắt cả giọng và
+                nhân vật.</p>
+        </div>
+    </div>
+    <div class="overlay" id="sourcesModal">
+        <div class="dialog">
+            <h2>Tài liệu kiểm chứng</h2>
+            <p>Các mốc dựa trên nội dung tư liệu lịch sử; sơ đồ là minh họa giáo dục.</p>
+            <p><a target="_blank" rel="noopener" href="https://dienbienphu.nhandan.vn/">Báo Nhân Dân: Điện Biên Phủ</a>
+            </p>
+            <p><a target="_blank" rel="noopener" href="https://btctdbp.svhttdl.dienbien.gov.vn/">Bảo tàng Chiến thắng
+                    Điện Biên Phủ</a></p>
+            <p><a target="_blank" rel="noopener"
+                    href="https://baochinhphu.vn/chien-dich-dien-bien-phu-3-dot-tan-cong-ac-liet-10224050209051285.htm">Báo
+                    Chính phủ: Ba đợt tiến công</a></p><button class="btn alt" id="sourcesClose">ĐÓNG</button>
+        </div>
+    </div>
+    <div class="overlay" id="updateModal" role="alertdialog" aria-labelledby="updateTitle">
+        <div class="dialog updateDialog">
+            <div class="eyebrow">CÓ PHIÊN BẢN MỚI</div>
+            <h2 id="updateTitle">Sóng lịch sử đã được cập nhật!</h2>
+            <p>Website đã có nội dung HTML mới. Tải lại để nhận bản mới nhất và tiếp tục hành trình.</p>
+            <div class="updateVersions" id="updateVersions"></div>
+            <div class="modal-actions"><button class="btn" id="updateNow">↻ CẬP NHẬT NGAY</button><button
+                    class="btn alt" id="updateLater">ĐỂ SAU</button></div>
+        </div>
+    </div>
+    <script id="gameLogic">
+        'use strict';
+        const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+        const data = [
+            { short: 'Bản đồ', title: 'Truy tìm chiến trường Điện Biên', date: '1953–1954', prompt: 'Chọn vị trí Điện Biên Phủ trên sơ đồ cách điệu vùng Tây Bắc.', fact: 'Điện Biên Phủ nằm ở vùng Tây Bắc Việt Nam, gần biên giới Lào. Quân Pháp đã xây dựng nơi đây thành một tập đoàn cứ điểm.', voice: 'Trạm một. Điện Biên Phủ thuộc vùng Tây Bắc Việt Nam, gần biên giới Lào. Tại đây, quân Pháp xây dựng tập đoàn cứ điểm lớn. Chiến dịch Điện Biên Phủ đã trở thành một dấu mốc quan trọng trong cuộc kháng chiến chống thực dân Pháp.' },
+            { short: 'Quyết định', title: 'Quyết định thay đổi cục diện', date: '26/01/1954', prompt: 'Phương châm tác chiến nào được chuyển sang ngày 26/1/1954?', fact: 'Đại tướng Võ Nguyên Giáp quyết định chuyển từ đánh nhanh, giải quyết nhanh sang đánh chắc, tiến chắc.', voice: 'Trạm hai. Ngày 26 tháng một năm 1954, Đại tướng Võ Nguyên Giáp quyết định chuyển sang phương châm đánh chắc, tiến chắc. Quyết định này giúp quân ta có thời gian chuẩn bị trận địa và tổ chức chiến đấu thận trọng hơn.' },
+            { short: 'Hậu cần', title: 'Sức mạnh từ hậu phương', date: 'Đầu năm 1954', prompt: 'Ghép đúng lực lượng, phương tiện với vai trò hậu cần.', fact: 'Dân công hỏa tuyến, xe đạp thồ và bộ đội kéo pháo đã góp phần bảo đảm lương thực, đạn dược và vũ khí cho chiến dịch.', voice: 'Trạm ba. Dân công hỏa tuyến, xe đạp thồ và lực lượng kéo pháo góp phần quan trọng vào thành công của chiến dịch. Hậu cần đã trở thành một sức mạnh của toàn dân.' },
+            { short: 'Mở màn', title: 'Khôi phục bản tin mở màn', date: '13–17/03/1954', prompt: 'Xếp ba sự kiện dưới đây từ sớm đến muộn.', fact: 'Ngày 13/3 mở màn tại Him Lam; ngày 15/3 tiến công Độc Lập; ngày 17/3 Bản Kéo đầu hàng, các cứ điểm vòng ngoài phía bắc bị phá vỡ.', voice: 'Trạm bốn. Ngày 13 tháng ba năm 1954, chiến dịch mở màn bằng trận Him Lam. Tiếp đó, quân ta tiến công Độc Lập, rồi Bản Kéo đầu hàng. Tuyến phòng thủ phía bắc bị phá vỡ.' },
+            { short: 'Ba đợt', title: 'Giải mã ba đợt tiến công', date: '13/03–07/05/1954', prompt: 'Xác định nội dung đúng của từng đợt trong 56 ngày đêm.', fact: 'Đợt một từ 13–17/3 phá vỡ phòng tuyến phía bắc; đợt hai từ 30/3 đến 30/4 tiến công các cứ điểm phía đông và siết vòng vây; đợt ba từ 1–7/5 tổng công kích.', voice: 'Trạm năm. Chiến dịch Điện Biên Phủ diễn ra qua ba đợt tiến công. Đợt đầu phá vỡ phòng tuyến phía bắc. Đợt hai tập trung vào các cứ điểm phía đông. Đợt cuối là giai đoạn tổng công kích dẫn tới chiến thắng.' },
+            { short: 'Chiến thắng', title: 'Tín hiệu ngày chiến thắng', date: '06–07/05/1954', prompt: 'Kiểm chứng ba bản tin về những giờ phút cuối chiến dịch.', fact: 'Tối 6/5 khối bộc phá trên đồi A1 phát nổ. Ngày 7/5 quân ta làm chủ A1 và chiều cùng ngày chiếm sở chỉ huy, buộc tướng De Castries đầu hàng.', voice: 'Trạm sáu. Tối ngày 6 tháng năm, khối bộc phá trên đồi A1 được kích nổ. Ngày 7 tháng năm, quân ta làm chủ đồi A1. Chiều cùng ngày, sở chỉ huy tập đoàn cứ điểm bị chiếm, tướng Đờ Cát và bộ tham mưu đầu hàng.' },
+            { short: 'Ý nghĩa', title: 'Ý nghĩa lịch sử', date: '1954', prompt: 'Chọn ba nhận định lịch sử đúng để hoàn tất bản tin.', fact: 'Chiến thắng Điện Biên Phủ góp phần tạo điều kiện cho Hiệp định Genève năm 1954 và cổ vũ phong trào giải phóng dân tộc trên thế giới.', voice: 'Trạm bảy. Chiến thắng Điện Biên Phủ có ý nghĩa to lớn trong cuộc kháng chiến của nhân dân Việt Nam, góp phần tạo điều kiện ký kết Hiệp định Giơ-ne-vơ năm 1954, và cổ vũ nhiều phong trào giải phóng dân tộc.' }
+        ];
+        const state = { started: false, team: 'Đội Lịch Sử', stage: 0, done: new Set(), score: 0, errors: 0, hints: 0, hinted: false, misses: 0, msg: '', selectedLeft: null, pairs: [], order: [], wave: 0, waveCorrect: {}, signals: {}, verify: [] };
+        const narrator = { enabled: true, speechId: 0, on: false, source: '', stopAfter: null };
+        const INTRO = 'Đây là chương trình Sóng Lịch Sử 1954. Hãy cùng tìm hiểu Chiến dịch Điện Biên Phủ qua bảy trạm phát thanh tương tác.';
+        const OUTRO = 'Ngày 7 tháng 5 năm 1954, Chiến dịch Điện Biên Phủ kết thúc thắng lợi. Đó là một mốc son lịch sử của dân tộc Việt Nam. Chương trình Sóng Lịch Sử 1954 xin kết thúc tại đây.';
+        function escapeHtml(x) { return String(x).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+        function splitText(t) { const sentences = (String(t).match(/[^.!?]+[.!?]?/g) || [t]).map(s => s.trim()).filter(Boolean); const list = []; for (let sentence of sentences) { while (sentence.length > 138) { let ix = sentence.lastIndexOf(' ', 138); if (ix < 60) ix = 138; list.push(sentence.slice(0, ix).trim()); sentence = sentence.slice(ix).trim(); } if (sentence) list.push(sentence); } return list; }
+        function narratorShow(text, title, pos, total) { $('#narrator').classList.add('show'); $('#narratorTitle').textContent = title || 'Phát thanh viên'; $('#narratorLine').textContent = text; $('#narratorCount').textContent = `${String(pos + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`; $('#narratorProgress').style.width = `${100 * (pos + 1) / total}%`; narrator.on = true; }
+        function voiceStop() { narrator.speechId++; narrator.on = false; narrator.source = ''; if (narrator.stopAfter) { clearTimeout(narrator.stopAfter); narrator.stopAfter = null; } if ('speechSynthesis' in window) try { speechSynthesis.cancel(); } catch (e) { } $('#narrator').classList.remove('show'); }
+        function voiceSay(text, title = 'Bản tin lịch sử') {
+            voiceStop(); if (!narrator.enabled) return;
+            if (!('speechSynthesis' in window) || !('SpeechSynthesisUtterance' in window)) return;
+            const pieces = splitText(text); if (!pieces.length) return;
+            const voice = speechSynthesis.getVoices().find(v => v.lang && v.lang.toLowerCase().startsWith('vi'));
+            const current = narrator.speechId; let i = 0; narrator.source = 'tts';
+            function next() {
+                if (narrator.speechId !== current || !narrator.enabled) return; if (i >= pieces.length) { narrator.stopAfter = setTimeout(() => { if (narrator.speechId === current) voiceStop(); }, 650); return; }
+                const piece = pieces[i], index = i++; const u = new SpeechSynthesisUtterance(piece); u.lang = 'vi-VN'; u.rate = .91; u.pitch = .96; if (voice) u.voice = voice;
+                let started = false; u.onstart = () => { if (narrator.speechId !== current) return; started = true; narratorShow(piece, title, index, pieces.length) };
+                u.onend = () => { if (narrator.speechId === current) next() }; u.onerror = () => { if (narrator.speechId === current) voiceStop() };
+                try { speechSynthesis.speak(u) } catch (e) { voiceStop() }
+            }
+            next();
+        }
+        function videoNarrator(show) { if (show) { voiceStop(); if (!narrator.enabled) return; narrator.speechId++; narrator.source = 'video'; narratorShow('Đang phát phim hoạt hình minh họa do nhóm thực hiện.', 'Giới thiệu tư liệu', 0, 1) } else if (narrator.source === 'video') { voiceStop(); } }
+        function overlay(id, show) { $('#' + id).classList.toggle('show', !!show); }
+        function speakRound() { voiceSay(`Trạm ${state.stage + 1}. ${data[state.stage].title}. ${data[state.stage].prompt}`, 'Giới thiệu trạm ' + (state.stage + 1)); }
+        function boot() { for (let i = 0; i < 28; i++) { let el = document.createElement('i'); el.style.setProperty('--h', (6 + Math.random() * 22) + 'px'); el.style.setProperty('--d', (-Math.random()) + 's'); $('#bars').append(el); } render(); }
+        function render() {
+            const d = data[state.stage]; $('#stations').innerHTML = data.map((v, i) => `<button class="station ${state.done.has(i) ? 'done' : state.started && i === state.stage ? 'active' : 'locked'}" data-station="${i}" ${!state.started || (!state.done.has(i) && i !== state.stage) ? 'disabled' : ''}><span>TRẠM ${String(i + 1).padStart(2, '0')}</span><strong>${escapeHtml(v.short)}</strong></button>`).join(''); $$('[data-station]').forEach(b => b.onclick = () => { state.stage = +b.dataset.station; state.msg = ''; state.hinted = false; voiceStop(); render(); }); $('#score').textContent = `${state.score.toLocaleString('vi-VN')} ĐIỂM`; $('#tapes').innerHTML = data.map((_, i) => `<i class="${state.done.has(i) ? 'done' : ''}"></i>`).join(''); $('#doneInfo').textContent = $('#airInfo').textContent = `${state.done.size}/7`; $('#teamInfo').textContent = state.team; $('#status').textContent = state.started ? `TRẠM ${state.stage + 1}/7 · ${state.done.has(state.stage) ? 'ĐÃ KHÔI PHỤC' : 'ĐANG KHÔI PHỤC'}` : 'CHỜ TÍN HIỆU'; let html;
+            if (!state.started) { html = '<div class="kicker">CHÀO MỪNG</div><h2>Sẵn sàng khôi phục bản tin?</h2><p class="stage-desc">Bắt đầu để nghe lời giới thiệu và tương tác cùng các trạm lịch sử.</p><button class="btn" id="openStart">BẮT ĐẦU →</button>'; $('#stageBody').innerHTML = html; $('#openStart').onclick = () => overlay('welcome', true); return; }
+            html = `<div class="kicker">TRẠM ${String(state.stage + 1).padStart(2, '0')} · ${d.date}</div><h2>${escapeHtml(d.title)}</h2><p class="stage-desc">${escapeHtml(d.prompt)}</p>`;
+            if (state.done.has(state.stage)) { html += `<div class="feedback"><b>✓ ĐÃ XÁC MINH LỊCH SỬ</b><p style="margin:7px 0 0">${escapeHtml(d.fact)}</p></div><div class="actions"><button class="btn alt" id="replayVoice">♫ Nghe lại đoạn kể</button><button class="btn" id="nextStage">${state.stage === 6 ? 'XEM BẢN TIN CUỐI →' : 'TRẠM TIẾP THEO →'}</button></div>`; } else { html += taskHtml(); if (state.msg) html += `<div class="feedback ${state.msg.startsWith('✕') ? 'error' : ''}">${escapeHtml(state.msg)}</div>`; html += '<div class="actions"><button class="btn alt" id="hintBtn" ' + (state.hinted ? 'disabled' : '') + '>💡 GỢI Ý (−30 ĐIỂM)</button><button class="btn alt" id="repeatIntro">♫ NGHE HƯỚNG DẪN</button></div>'; }
+            $('#stageBody').innerHTML = html; wire();
+        }
+        function taskHtml() {
+            if (state.stage === 0) return `<div class="prompt">Chọn điểm A, B hoặc C trên bản đồ Tây Bắc cách điệu (không theo tỉ lệ).</div><div class="map"><svg viewBox="0 0 680 344" role="img" aria-label="Sơ đồ minh họa Tây Bắc Việt Nam với ba vị trí A B C"><defs><pattern id="mapgrid" width="27" height="27" patternUnits="userSpaceOnUse"><path d="M0 27V0H27" fill="none" stroke="#998e68" stroke-width=".6" opacity=".55"/></pattern></defs><rect width="680" height="344" fill="#d1c49a"/><rect width="680" height="344" fill="url(#mapgrid)"/><path d="M0 210Q120 120 220 200T430 230T680 150M95 0Q175 90 140 180T240 344M440 0Q340 95 415 175T490 344" fill="none" stroke="#b2a47d" stroke-width="23" opacity=".7"/><path d="M325 0Q290 85 329 140T320 290" fill="none" stroke="#638b95" stroke-width="5" opacity=".7"/><text x="25" y="39" fill="#5a5138" font-weight="bold" font-size="21">TÂY BẮC VIỆT NAM</text><text x="26" y="60" fill="#7b7050" font-size="11">SƠ ĐỒ MINH HỌA — KHÔNG THEO TỈ LỆ</text><text x="30" y="300" fill="#887e5c" font-size="32">LÀO</text><text x="440" y="297" fill="#81775a" font-size="18">ĐỒNG BẰNG</text><g class="map-point" data-map="0" tabindex="0" role="button" aria-label="Điểm A" transform="translate(520,117)"><circle r="25"/><text y="6">A</text></g><g class="map-point" data-map="1" tabindex="0" role="button" aria-label="Điểm B" transform="translate(173,187)"><circle r="25"/><text y="6">B</text></g><g class="map-point" data-map="2" tabindex="0" role="button" aria-label="Điểm C" transform="translate(409,253)"><circle r="25"/><text y="6">C</text></g></svg></div>`;
+            if (state.stage === 1) return `<div class="prompt">Ngày 26/1/1954, phương châm tác chiến mới là gì?</div><div class="cards"><button class="decision" data-decision="0"><strong>Đánh nhanh, giải quyết nhanh</strong><small>Tiến công trong thời gian ngắn</small></button><button class="decision" data-decision="1"><strong>Đánh chắc, tiến chắc</strong><small>Chuẩn bị kỹ, tiến công từng bước</small></button></div>`;
+            if (state.stage === 2) { const l = [['d', 'Dân công hỏa tuyến'], ['b', 'Xe đạp thồ'], ['p', 'Bộ đội kéo pháo']], r = [['p', 'Đưa pháo vào trận địa qua địa hình hiểm trở'], ['d', 'Huy động sức người tham gia vận chuyển và tiếp tế'], ['b', 'Chở lương thực, đạn dược ra mặt trận']]; return `<div class="prompt">Ghép một mục ở cột trái với vai trò tương ứng ở cột phải.</div><div class="pairs"><div class="paircol">${l.map(([id, t]) => `<button class="pair ${state.selectedLeft === id ? 'sel' : ''} ${state.pairs.includes(id) ? 'done' : ''}" data-left="${id}" ${state.pairs.includes(id) ? 'disabled' : ''}>${t}</button>`).join('')}</div><div class="paircol">${r.map(([id, t]) => `<button class="pair ${state.pairs.includes(id) ? 'done' : ''}" data-right="${id}" ${state.pairs.includes(id) ? 'disabled' : ''}>${t}</button>`).join('')}</div></div><p class="stage-desc" style="margin-top:12px">Đã ghép đúng ${state.pairs.length}/3 cặp.</p>`; }
+            if (state.stage === 3) { let e = [['b', '15/3/1954', 'Tiến công Độc Lập'], ['c', '17/3/1954', 'Bản Kéo đầu hàng'], ['a', '13/3/1954', 'Trận Him Lam mở màn']]; return `<div class="prompt">Chọn sự kiện từ sớm đến muộn để tạo dòng thời gian đúng.</div><div class="selected">${state.order.length ? state.order.map((v, i) => `<button class="chip" data-remove="${i}">${i + 1}. ${escapeHtml({ a: 'Him Lam', b: 'Độc Lập', c: 'Bản Kéo' }[v])} ×</button>`).join('') : 'Chưa chọn sự kiện...'}</div>${e.map(([id, date, label]) => `<div class="event"><span><b>${date}</b><br>${label}</span><button class="btn alt light" data-order="${id}" ${state.order.includes(id) ? 'disabled' : ''}>+ CHỌN</button></div>`).join('')}<button class="btn" id="checkOrder" ${state.order.length !== 3 ? 'disabled' : ''}>KIỂM TRA THỨ TỰ</button>`; }
+            if (state.stage === 4) { const w = state.wave, dates = ['13–17/3/1954', '30/3–30/4/1954', '1–7/5/1954'], opts = [['Phá vỡ phòng tuyến phía bắc', 'Tiến tới tổng công kích', 'Đánh dấu kết thúc chiến tranh năm 1975'], ['Tiến công cứ điểm phía đông và siết chặt vòng vây', 'Mở màn tại Him Lam', 'Tổng công kích và kết thúc'], ['Tổng công kích và giành chiến thắng', 'Thay đổi phương châm tác chiến', 'Chỉ tập trung vào kéo pháo']]; return `<div class="prompt">Xác minh nội dung đúng của từng đợt tiến công.</div><div class="waves">${[0, 1, 2].map(i => `<button class="wavebtn ${w === i ? 'sel' : ''} ${state.waveCorrect[i] ? 'done' : ''}" data-wave="${i}">ĐỢT ${i + 1}${state.waveCorrect[i] ? ' ✓' : ''}</button>`).join('')}</div><div class="waveinfo"><small>MỐC THỜI GIAN</small><br><strong>${dates[w]}</strong></div><div class="options">${opts[w].map((v, i) => `<button class="option" data-waveanswer="${i}"><span class="letter">${'ABC'[i]}</span>${v}</button>`).join('')}</div>`; }
+            if (state.stage === 5) { const arr = [['Tối 6/5', 'Điều gì xảy ra tại đồi A1?', ['Kích nổ khối bộc phá', 'Ký Hiệp định Genève']], ['Ngày 7/5', 'Diễn biến tại đồi A1?', ['Quân Pháp phản công thắng lợi', 'Quân ta làm chủ đồi A1']], ['Chiều 7/5', 'Kết quả tại sở chỉ huy tập đoàn cứ điểm?', ['Bộ chỉ huy quân Pháp đầu hàng', 'Chiến dịch mới bắt đầu']]]; return `<div class="prompt">Chọn nội dung đúng cho cả ba tín hiệu lịch sử.</div>${arr.map((x, i) => `<div class="signal"><small>TÍN HIỆU ${i + 1} · ${x[0]}</small><h4>${x[1]}</h4><div>${x[2].map((t, j) => `<button class="${state.signals[i] === j ? 'sel' : ''}" data-signal="${i}:${j}">${t}</button>`).join('')}</div></div>`).join('')}<button class="btn" id="checkSignals" ${Object.keys(state.signals).length !== 3 ? 'disabled' : ''}>KIỂM TRA BA TÍN HIỆU</button>`; }
+            const claims = ['Chiến dịch Điện Biên Phủ kéo dài 56 ngày đêm.', 'Chiến thắng góp phần tạo điều kiện ký Hiệp định Genève năm 1954.', 'Việt Nam thống nhất ngay lập tức trong tháng 5 năm 1954.', 'Chiến thắng cổ vũ các phong trào giải phóng dân tộc.', 'Chiến dịch Điện Biên Phủ chỉ diễn ra đúng một ngày.']; return `<div class="prompt">Chọn cả ba nhận định chính xác.</div>${claims.map((t, i) => `<label class="check"><input class="verify" type="checkbox" value="${i}" ${state.verify.includes(i) ? 'checked' : ''}><span>${t}</span></label>`).join('')}<button class="btn" id="checkVerify">XÁC NHẬN NỘI DUNG BẢN TIN</button>`;
+        }
+        function fail(msg) { state.errors++; state.misses++; state.msg = '✕ CHƯA CHÍNH XÁC. ' + msg; render(); voiceSay('Chưa chính xác. Hãy kiểm tra lại sự kiện và thử lần nữa.', 'Phản hồi'); }
+        function win() { if (state.done.has(state.stage)) return; let score = Math.max(65, 200 - 25 * state.misses - (state.hinted ? 30 : 0)); state.done.add(state.stage); state.score += score; state.msg = ''; const current = state.stage; render(); voiceSay(`Chính xác! ${data[current].fact}`, 'Khôi phục thành công'); }
+        function goNext() { voiceStop(); if (state.done.size === 7 && state.stage === 6) { final(); return; } let n = state.stage + 1; while (n < 7 && state.done.has(n)) n++; if (n >= 7) { final(); return; } state.stage = n; state.hinted = false; state.misses = 0; state.msg = ''; state.pairs = []; state.order = []; state.wave = 0; state.waveCorrect = {}; state.signals = {}; state.verify = []; state.selectedLeft = null; render(); speakRound(); }
+        function wire() {
+            if (state.done.has(state.stage)) { $('#replayVoice').onclick = () => voiceSay(data[state.stage].voice, 'Trạm ' + (state.stage + 1)); $('#nextStage').onclick = goNext; return; }
+            $('#repeatIntro').onclick = speakRound; $('#hintBtn').onclick = () => { if (state.hinted) return; state.hinted = true; state.hints++; state.msg = ['Điểm ở phía Tây bản đồ, gần chữ Lào.', 'Phương châm mới ưu tiên sự chắc thắng.', 'Nối sức người với dân công, phương tiện chở hàng với xe đạp và pháo với kéo pháo.', 'Him Lam, Độc Lập rồi Bản Kéo.', 'Đợt một phá phòng tuyến phía bắc; đợt hai siết vòng vây; đợt ba tổng công kích.', 'Tối 6/5 khối bộc phá, ngày 7/5 làm chủ A1 và chiếm sở chỉ huy.', 'Loại nhận định nói chiến dịch chỉ một ngày hoặc Việt Nam thống nhất ngay trong tháng 5/1954.'][state.stage]; render(); voiceSay(state.msg, 'Gợi ý lịch sử'); };
+            if (state.stage === 0) $$('[data-map]').forEach(el => { function click() { +el.dataset.map === 1 ? win() : fail('Điện Biên Phủ nằm ở vùng Tây Bắc, gần biên giới Lào.'); } el.onclick = click; el.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); click(); } } });
+            if (state.stage === 1) $$('[data-decision]').forEach(el => el.onclick = () => +el.dataset.decision === 1 ? win() : fail('Phương án này là phương châm ban đầu.'));
+            if (state.stage === 2) { $$('[data-left]').forEach(el => el.onclick = () => { state.selectedLeft = el.dataset.left; render() }); $$('[data-right]').forEach(el => el.onclick = () => { if (!state.selectedLeft) { state.msg = 'Chọn một mục bên trái trước.'; render(); return; } if (el.dataset.right !== state.selectedLeft) { fail('Hai mục chưa khớp.'); return; } state.pairs.push(state.selectedLeft); state.selectedLeft = null; if (state.pairs.length === 3) win(); else render(); }); }
+            if (state.stage === 3) { $$('[data-order]').forEach(el => el.onclick = () => { state.order.push(el.dataset.order); render() }); $$('[data-remove]').forEach(el => el.onclick = () => { state.order.splice(+el.dataset.remove, 1); render() }); $('#checkOrder').onclick = () => state.order.join('') === 'abc' ? win() : fail('Hãy so sánh mốc 13, 15 và 17/3.'); }
+            if (state.stage === 4) { $$('[data-wave]').forEach(el => el.onclick = () => { state.wave = +el.dataset.wave; render() }); $$('[data-waveanswer]').forEach(el => el.onclick = () => { if (+el.dataset.waveanswer === 0) { state.waveCorrect[state.wave] = true; if (Object.keys(state.waveCorrect).length === 3) { win(); return } state.wave = [0, 1, 2].find(i => !state.waveCorrect[i]); render() } else fail('Nội dung này không đúng với đợt tiến công đang chọn.'); }); }
+            if (state.stage === 5) { $$('[data-signal]').forEach(el => el.onclick = () => { const [i, j] = el.dataset.signal.split(':').map(Number); state.signals[i] = j; render() }); $('#checkSignals').onclick = () => state.signals[0] === 0 && state.signals[1] === 1 && state.signals[2] === 0 ? win() : fail('Đối chiếu lại đồi A1 và sở chỉ huy.'); }
+            if (state.stage === 6) { $$('.verify').forEach(el => el.onchange = () => { state.verify = $$('.verify:checked').map(x => +x.value) }); $('#checkVerify').onclick = () => state.verify.slice().sort().join(',') === '0,1,3' ? win() : fail('Chỉ chọn ba nhận định có cơ sở lịch sử.'); }
+        }
+        function fullScript() { return `SÓNG LỊCH SỬ 1954 – BẢN TIN ĐẶC BIỆT\nĐội thực hiện: ${state.team}\n\n${INTRO}\n\n${data.map((x, i) => 'TRẠM ' + (i + 1) + ': ' + x.title.toUpperCase() + '\n' + x.voice).join('\n\n')}\n\n${OUTRO}\n\nTài liệu tham khảo: Báo Nhân Dân, Bảo tàng Chiến thắng Điện Biên Phủ, Báo Chính phủ.`; }
+        function final() { voiceStop(); $('#results').innerHTML = `<div><b>${state.score}</b><small>ĐIỂM TỔNG KẾT</small></div><div><b>7/7</b><small>TRẠM MỞ KHÓA</small></div><div><b>${state.errors}</b><small>LẦN TRẢ LỜI SAI</small></div>`; $('#report').textContent = fullScript(); overlay('finalModal', true); voiceSay('Chúc mừng! Bảy trạm phát thanh đã được khôi phục. Bạn có thể nghe toàn bộ bản tin chiến thắng.', 'Hoàn thành nhiệm vụ'); }
+        function restart() { voiceStop(); overlay('finalModal', false); state.started = false; state.stage = 0; state.done = new Set(); state.score = 0; state.errors = 0; state.hints = 0; state.hinted = false; state.misses = 0; state.msg = ''; state.selectedLeft = null; state.pairs = []; state.order = []; state.wave = 0; state.waveCorrect = {}; state.signals = {}; state.verify = []; render(); overlay('welcome', true); }
+        function init() { boot(); $('#startBtn').onclick = () => { state.team = $('#teamInput').value.trim().slice(0, 40) || 'Đội Lịch Sử'; state.started = true; overlay('welcome', false); render(); voiceSay(INTRO + ' ' + data[0].prompt, 'Giới thiệu hành trình'); }; $('#voiceBtn').onclick = () => { narrator.enabled = !narrator.enabled; $('#voiceBtn').innerHTML = narrator.enabled ? '🔊 <span>Giọng kể: Bật</span>' : '🔇 <span>Giọng kể: Tắt</span>'; if (!narrator.enabled) voiceStop(); else voiceSay('Chế độ kể chuyện bằng giọng nói đã bật.', 'Phát thanh viên'); }; $('#narratorStop').onclick = voiceStop; $('#videoBtn').onclick = $('#watchIntro').onclick = () => { voiceStop(); overlay('videoModal', true) }; $('#videoClose').onclick = () => { const v = $('#video'); v.pause(); videoNarrator(false); overlay('videoModal', false) }; $('#video').addEventListener('play', () => videoNarrator(true));['pause', 'ended', 'emptied'].forEach(e => $('#video').addEventListener(e, () => videoNarrator(false))); $('#playFull').onclick = () => voiceSay(INTRO + ' ' + data.map(x => x.voice).join(' ') + ' ' + OUTRO, 'Bản tin Điện Biên Phủ 1954'); $('#stopFull').onclick = voiceStop; $('#downloadScript').onclick = () => { const blob = new Blob([fullScript()], { type: 'text/plain;charset=utf-8' }), url = URL.createObjectURL(blob), a = document.createElement('a'); a.href = url; a.download = 'Ban_tin_Song_Lich_Su_1954.txt'; a.click(); setTimeout(() => URL.revokeObjectURL(url), 500) }; $('#restart').onclick = restart; $('#sourcesBtn').onclick = () => { voiceStop(); overlay('sourcesModal', true) }; $('#sourcesClose').onclick = () => overlay('sourcesModal', false); document.addEventListener('visibilitychange', () => { if (document.hidden) voiceStop() }); }
+        // Save state before reload during software update.
+        window.saveVoiceGame = () => { if (!state.started) return; try { sessionStorage.setItem('SLS1954_resume_v14', JSON.stringify({ t: Date.now(), team: state.team, stage: state.stage, done: [...state.done], score: state.score, errors: state.errors, hints: state.hints, misses: state.misses, hinted: state.hinted, pairs: state.pairs, order: state.order, wave: state.wave, waveCorrect: state.waveCorrect, signals: state.signals, verify: state.verify, selectedLeft: state.selectedLeft })) } catch (e) { } };
+        function restore() { try { const s = JSON.parse(sessionStorage.getItem('SLS1954_resume_v14') || 'null'); sessionStorage.removeItem('SLS1954_resume_v14'); if (!s || Date.now() - s.t > 10 * 60 * 1000) return; state.started = true; state.team = s.team; state.stage = s.stage; state.done = new Set(s.done); state.score = s.score; state.errors = s.errors; state.hints = s.hints; state.misses = s.misses; state.hinted = s.hinted; state.pairs = s.pairs; state.order = s.order; state.wave = s.wave; state.waveCorrect = s.waveCorrect; state.signals = s.signals; state.verify = s.verify; state.selectedLeft = s.selectedLeft; overlay('welcome', false); render() } catch (e) { } }
+        // Original static HTML captured before the game changes DOM. Update watcher hashes this.
+        window.SLS_ORIGINAL_HTML = document.documentElement.outerHTML;
+        init(); restore();
+    </script>
+    <script src="version-control.js" defer></script>
+</body>
+
+</html>
